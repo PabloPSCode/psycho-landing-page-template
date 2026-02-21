@@ -3,41 +3,41 @@
 @import "../styles/phone-overrides.css";
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {--color-primary-50:  #f0fdf4;}
-@theme {--color-primary-100: #dcfce7;}
-@theme {--color-primary-200: #bbf7d0;}
-@theme {--color-primary-300: #86efac;}
-@theme {--color-primary-400: #4ade80;}
-@theme {--color-primary-500: #009739;}
-@theme {--color-primary-600: #008131;}
-@theme {--color-primary-700: #006628;}
-@theme {--color-primary-800: #004d1f;}
-@theme {--color-primary-900: #003315;}
-@theme {--color-primary-950: #001a0a;}
+@theme {--color-primary-50:  #eef5ff;}
+@theme {--color-primary-100: #d9e8ff;}
+@theme {--color-primary-200: #bdd6ff;}
+@theme {--color-primary-300: #93bbff;}
+@theme {--color-primary-400: #5d94ef;}
+@theme {--color-primary-500: #2567b8;}
+@theme {--color-primary-600: #1f5aa3;}
+@theme {--color-primary-700: #184880;}
+@theme {--color-primary-800: #133660;}
+@theme {--color-primary-900: #0e2744;}
+@theme {--color-primary-950: #081625;}
 
-@theme {--color-secondary-50:  #fffdea;}
-@theme {--color-secondary-100: #fef9c3;}
-@theme {--color-secondary-200: #fef08a;}
-@theme {--color-secondary-300: #fde047;}
-@theme {--color-secondary-400: #facc15;}
-@theme {--color-secondary-500: #ffcc29;}
-@theme {--color-secondary-600: #e6b800;}
-@theme {--color-secondary-700: #cca300;}
-@theme {--color-secondary-800: #997a00;}
-@theme {--color-secondary-900: #665200;}
-@theme {--color-secondary-950: #332900;}
+@theme {--color-secondary-50:  #f2fbff;}
+@theme {--color-secondary-100: #dff4ff;}
+@theme {--color-secondary-200: #bfe9ff;}
+@theme {--color-secondary-300: #93d8f9;}
+@theme {--color-secondary-400: #67c4ee;}
+@theme {--color-secondary-500: #54afd8;}
+@theme {--color-secondary-600: #3d98c2;}
+@theme {--color-secondary-700: #2f7da0;}
+@theme {--color-secondary-800: #25607a;}
+@theme {--color-secondary-900: #1b475a;}
+@theme {--color-secondary-950: #0f2a36;}
 
-@theme {--color-tertiary-50:  #eff6ff;}
-@theme {--color-tertiary-100: #dbeafe;}
-@theme {--color-tertiary-200: #bfdbfe;}
-@theme {--color-tertiary-300: #93c5fd;}
-@theme {--color-tertiary-400: #60a5fa;}
-@theme {--color-tertiary-500: #002776;}
-@theme {--color-tertiary-600: #001f5e;}
-@theme {--color-tertiary-700: #001947;}
-@theme {--color-tertiary-800: #00122f;}
-@theme {--color-tertiary-900: #000c1a;}
-@theme {--color-tertiary-950: #00060d;}
+@theme {--color-tertiary-50:  #eef2fb;}
+@theme {--color-tertiary-100: #dbe5f7;}
+@theme {--color-tertiary-200: #bfcee9;}
+@theme {--color-tertiary-300: #97afd7;}
+@theme {--color-tertiary-400: #6c8bc2;}
+@theme {--color-tertiary-500: #4567a5;}
+@theme {--color-tertiary-600: #355288;}
+@theme {--color-tertiary-700: #2a416c;}
+@theme {--color-tertiary-800: #203250;}
+@theme {--color-tertiary-900: #152137;}
+@theme {--color-tertiary-950: #0b111f;}
 
 @theme {--color-info-50: #eff6ff;}
 @theme {--color-info-100: #dbeafe;}
@@ -88,17 +88,17 @@
 @theme {--color-destructive-950: #2b0009;}
 
 @theme {
-  --color-background: #F6F5F7;  /* light mode */
-  --color-foreground: #1F1F1F;  /* light mode */
-  --color-bg-card: #ffffff;  /* light mode */
-  --color-border-card: #ffffff;  /* light mode */
+  --color-background: #f2f3f7;  /* light mode */
+  --color-foreground: #1e2f44;  /* light mode */
+  --color-bg-card: #f8fbff;  /* light mode */
+  --color-border-card: #dbe8f7;  /* light mode */
 
-    --font-primary: "Work Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    --font-primary: "Lexend", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
                Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
                "Segoe UI Emoji", sans-serif;
 
   /* Secondary font (e.g., for headings) */
-  --font-secondary: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+  --font-secondary: "Montserrat", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
                     Roboto, "Helvetica Neue", Arial, "Noto Sans",
                     "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
 
@@ -106,10 +106,10 @@
 
 /* Class override so a `.dark` class wins regardless of system */
 :root.dark {
-  --color-background: #111111;
-  --color-foreground: #FFFEFC;
-  --color-bg-card: #222222;
-  --color-border-card: #444444;
+  --color-background: #0e1727;
+  --color-foreground: #e7f1ff;
+  --color-bg-card: #1a2740;
+  --color-border-card: #2a3e63;
 }
 
 
@@ -119,11 +119,15 @@
 
 html{
   scroll-behavior: smooth;
-  font-family: var(--font-primary);
+  font-family: Lexend, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+               "Segoe UI Emoji", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, button, a {
-  font-family: var(--font-secondary);
+  font-family: Montserrat, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+               "Segoe UI Emoji", sans-serif;
 }
 
 button{
