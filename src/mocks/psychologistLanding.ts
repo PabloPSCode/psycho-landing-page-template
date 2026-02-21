@@ -90,7 +90,7 @@ export const psychologistLandingMock: {
   ],
   hero: {
     eyebrow: "Cuidado psicológico para viver melhor",
-    title: "Psicoterapia e acolhimento com identidade para a sua transformação",
+    title: "Psicoterapia TRG",
     description:
       "Atendimento terapêutico autoral para superar traumas, fortalecer sua autoestima e construir uma vida com mais equilíbrio emocional.",
     ctaLabel: "Agende sua sessão",
