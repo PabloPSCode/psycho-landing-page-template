@@ -72,14 +72,14 @@ export const psychologistLandingMock: {
     copyright: string;
   };
 } = {
-  pageName: "Terapia TRG",
-  clinicName: "Instituto Horizonte Terapêutico",
-  professionalName: "Dra. Helena L. Costa",
-  professionalRole: "Psicóloga Clínica | Especialista em Terapia TRG",
-  address: "João Monlevade - MG",
-  phone: "31 91234-1234",
-  email: "contato@institutohorizonte.com.br",
-  instagramUrl: "https://www.instagram.com/",
+  pageName: "Camila Almeida - Terapeuta TRG",
+  clinicName: "Camila Almeida",
+  professionalName: "Camila Almeida",
+  professionalRole: "Terapeuta TRG",
+  address: "Atendimento online",
+  phone: "31 98912-6231",
+  email: "camilas_dm@hotmail.com",
+  instagramUrl: "https://www.instagram.com/camilasoares__/",
   whatsappUrl: "https://wa.me/5531912341234",
   headerLinks: [
     { label: "Início", href: "#inicio" },
@@ -89,124 +89,124 @@ export const psychologistLandingMock: {
     { label: "Contato", href: "#contato" },
   ],
   hero: {
-    eyebrow: "Cuidado psicológico para viver melhor",
-    title: "Psicoterapia TRG",
+    eyebrow: "Camila Almeida - Terapeuta TRG",
+    title: "Reprocessando emoções para uma vida mais leve",
     description:
-      "Atendimento terapêutico autoral para superar traumas, fortalecer sua autoestima e construir uma vida com mais equilíbrio emocional.",
+      "Ajudo pessoas a superar traumas emocionais, ansiedade, bloqueios e dores do passado através da Terapia de Reprocessamento Generativo, promovendo mais leveza, equilíbrio emocional e liberdade interior.",
     ctaLabel: "Agende sua sessão",
     imageUrl: "/images/psychologist/hero-trg.jpg",
   },
   transformation: {
-    title: "Juntos, vamos superar o passado e redefinir seu futuro",
+    title: "Liberte-se de emoções que ainda prendem você ao passado",
     paragraphs: [
-      "O peso do passado ainda influencia suas escolhas?",
-      "Existe algo que te impede de alcançar seus sonhos e viver com mais leveza?",
-      "Você não precisa carregar esse fardo sozinho(a). Há uma forma segura de ressignificar memórias e construir uma nova história.",
+      "Descubra uma nova forma de viver com mais leveza, segurança e equilíbrio emocional.",
     ],
     imageUrl: "/images/psychologist/transformation-trg.jpg",
   },
   method: {
-    title: "Conheça um pouco mais sobre a técnica mais avançada do século XXI em terapia",
-    subtitle: "A TRG, Terapia de Reprocessamento Generativo",
+    title: "O que é a TRG?",
+    subtitle: "Terapia de Reprocessamento Generativo",
     paragraphs: [
-      "A TRG é uma abordagem terapêutica focada na raiz dos conflitos emocionais. Com ela, traumas, medos e padrões repetitivos são trabalhados de forma profunda e respeitosa.",
-      "Ao ressignificar memórias dolorosas, o cérebro constrói novas respostas emocionais. Isso fortalece sua autonomia, melhora suas relações e amplia sua capacidade de tomar decisões.",
+      "A TRG é uma abordagem terapêutica que ajuda a pessoa a reprocessar memórias dolorosas e emoções negativas armazenadas no cérebro.",
+      "Durante as sessões, trabalhamos para que o cérebro reorganize essas experiências, reduzindo o sofrimento emocional e trazendo mais paz e equilíbrio.",
     ],
     ctaLabel: "Agende sua sessão",
   },
   support: {
-    title: "Estou pronta para te ajudar!",
+    title: "A TRG pode ajudar se você:",
     items: [
       {
-        title: "Traumas e bloqueios",
-        description: "Ressignificação de experiências que ainda causam dor.",
-        icon: "mente",
-      },
-      {
-        title: "Ansiedade e estresse",
-        description: "Redução de sintomas e recuperação de equilíbrio emocional.",
+        title: "Ansiedade constante",
+        description: "Sente ansiedade ou preocupações constantes.",
         icon: "ansiedade",
       },
       {
-        title: "Relações familiares",
-        description: "Melhoria da comunicação e fortalecimento de vínculos.",
+        title: "Dores do passado",
+        description:
+          "Carrega experiências dolorosas do passado que ainda afetam o presente.",
+        icon: "mente",
+      },
+      {
+        title: "Medos e inseguranças",
+        description: "Tem medos, inseguranças ou baixa autoestima.",
+        icon: "proposito",
+      },
+      {
+        title: "Tristeza profunda",
+        description:
+          "Vive tristeza profunda ou sentimentos difíceis de explicar.",
+        icon: "ansiedade",
+      },
+      {
+        title: "Padrões nos relacionamentos",
+        description: "Percebe que repete padrões negativos em relacionamentos.",
         icon: "familia",
       },
       {
-        title: "Propósito de vida",
-        description: "Desenvolvimento de clareza para avançar com segurança.",
+        title: "Culpa, vergonha e mágoas",
+        description: "Carrega culpa, vergonha ou mágoas antigas.",
+        icon: "mente",
+      },
+      {
+        title: "Traumas e perdas",
+        description:
+          "Passou por traumas emocionais, perdas ou situações difíceis.",
+        icon: "mente",
+      },
+      {
+        title: "Mais leveza e confiança",
+        description:
+          "Deseja se sentir mais leve, confiante e em paz consigo mesmo.",
         icon: "proposito",
       },
     ],
     ctaLabel: "Agende sua sessão",
   },
   about: {
-    title: "Sobre mim",
+    title: "Camila Almeida - Terapeuta TRG",
     paragraphs: [
-      "Sou psicóloga clínica, terapeuta certificada em TRG e atuo com foco no acolhimento de adultos que desejam superar dores emocionais e viver com mais autonomia.",
-      "Com uma abordagem ética e humanizada, conduzo sessões que respeitam sua história, seu ritmo e seus limites, sempre com escuta ativa e atenção individual.",
-      "Meu compromisso é oferecer um espaço seguro para que você recupere sua força emocional e avance para uma vida mais leve e significativa.",
+      "Ajudo pessoas a superar traumas emocionais, ansiedade, bloqueios e dores do passado através da Terapia de Reprocessamento Generativo, promovendo mais leveza, equilíbrio emocional e liberdade interior.",
     ],
-    emphasis: "Vamos juntas nessa transformação?",
-    imageUrl: "/images/psychologist/about-trg.jpg",
+    emphasis: "Reprocessando emoções para uma vida mais leve",
+    imageUrl: "/images/psychologist/profile.png",
     ctaLabel: "Agende sua sessão",
   },
   faq: {
     title: "Dúvidas Frequentes",
     items: [
       {
-        question: "O que é Terapia de Reprocessamento Generativo (TRG)?",
+        question: "Como a TRG pode me ajudar?",
         answer:
-          "A TRG é uma abordagem terapêutica que trabalha a raiz dos conflitos emocionais, ajudando você a ressignificar experiências difíceis e reduzir sintomas emocionais persistentes.",
+          "A TRG é uma abordagem terapêutica que ajuda a reprocessar memórias dolorosas e emoções negativas armazenadas no cérebro. Durante as sessões, trabalhamos para que o cérebro reorganize essas experiências, reduzindo o sofrimento emocional e trazendo mais paz e equilíbrio. Ela pode ajudar em casos de ansiedade, dores do passado, medos, inseguranças, baixa autoestima, tristeza profunda, padrões negativos nos relacionamentos, culpa, vergonha, mágoas, traumas emocionais e perdas. A TRG não busca apenas falar sobre o problema, mas ajudar o cérebro a reprocessar as emoções ligadas às experiências vividas, promovendo mais leveza, segurança, equilíbrio emocional e liberdade interior.",
       },
       {
-        question: "Quem pode se tratar com a TRG?",
+        question: "Quanto tempo dura o tratamento com TRG?",
         answer:
-          "Adultos que desejam superar traumas, ansiedade, medos, inseguranças e padrões emocionais repetitivos podem se beneficiar da TRG, sempre com avaliação profissional individual.",
+          "A duração do tratamento com TRG pode variar dependendo das necessidades individuais de cada pessoa. Algumas pessoas podem começar a sentir melhorias significativas após algumas sessões, enquanto outras podem precisar de um período mais longo para alcançar os resultados desejados. Em geral, muitas pessoas experimentam benefícios notáveis em um período de 4 a 8 sessões, mas isso pode variar. O importante é que o processo seja conduzido de forma personalizada, respeitando o ritmo e as necessidades de cada indivíduo.",
       },
       {
-        question: "Como a TRG pode me ajudar na prática?",
+        question:
+          "A TRG é adequada para todos os tipos de problemas emocionais?",
         answer:
-          "O método auxilia na redução do sofrimento emocional, melhora a clareza mental, fortalece sua autoestima e contribui para relações mais saudáveis no dia a dia.",
+          "A TRG é uma abordagem terapêutica versátil que pode ser eficaz para uma ampla gama de problemas emocionais, incluindo ansiedade, traumas, bloqueios emocionais, dores do passado, medos, inseguranças, baixa autoestima, tristeza profunda e padrões negativos nos relacionamentos. No entanto, é importante ressaltar que cada pessoa é única, e a eficácia da TRG pode variar dependendo das circunstâncias individuais. É recomendado consultar um terapeuta qualificado para avaliar se a TRG é a abordagem mais adequada para o seu caso específico.",
       },
       {
-        question: "Como saber se a TRG é apropriada para mim?",
+        question: "Posso combinar a TRG com outras formas de terapia?",
         answer:
-          "Na primeira conversa avaliamos seu histórico, suas necessidades e seus objetivos para definir se a TRG é a abordagem mais indicada para o seu momento.",
-      },
-      {
-        question: "Quais os benefícios da TRG?",
-        answer:
-          "Entre os principais benefícios estão alívio emocional, melhora do bem-estar, maior estabilidade interna e mais autonomia para lidar com desafios da vida.",
-      },
-      {
-        question: "A TRG é regulamentada?",
-        answer:
-          "A aplicação clínica deve ser realizada por profissional qualificado e devidamente habilitado, seguindo princípios éticos e boas práticas de atendimento terapêutico.",
-      },
-      {
-        question: "Quantas sessões são recomendadas e qual a duração?",
-        answer:
-          "A quantidade de sessões varia conforme cada caso. Em geral, os encontros têm duração média de 50 a 60 minutos e o plano é definido de forma personalizada.",
-      },
-      {
-        question: "Qual é o valor de cada sessão?",
-        answer:
-          "Os valores são informados no contato inicial, de acordo com formato do atendimento, objetivo terapêutico e disponibilidade de agenda.",
+          "Sim, a TRG pode ser combinada com outras formas de terapia, dependendo das necessidades e preferências individuais. Muitos terapeutas utilizam uma abordagem integrativa, combinando técnicas de diferentes modalidades terapêuticas para oferecer um tratamento mais abrangente e personalizado. É importante discutir suas opções de tratamento com um terapeuta qualificado para determinar a melhor abordagem para o seu caso específico.",
       },
     ],
   },
   finalCta: {
-    title: "Dê o primeiro passo e permita-se viver a transformação que você merece.",
+    title:
+      "Liberte-se de emoções que ainda prendem você ao passado e descubra uma nova forma de viver com mais leveza, segurança e equilíbrio emocional.",
     description:
-      "Venha conversar comigo e tirar suas dúvidas sobre a TRG em um atendimento acolhedor.",
-    buttonLabel: "Tire suas dúvidas",
+      '"A TRG não busca apenas falar sobre o problema, mas ajudar o cérebro a reprocessar as emoções ligadas às experiências vividas."',
+    buttonLabel: "Agende sua sessão",
   },
   footer: {
-    registration:
-      "CRP ativo | Especialização em Terapia de Reprocessamento Generativo (TRG)",
-    legalNote:
-      "Atendimento particular para adultos e casais, presencial e online.",
-    copyright: "© Todos os direitos reservados.",
+    registration: "Camila Almeida - Terapeuta TRG",
+    legalNote: "Reprocessando emoções para uma vida mais leve",
+    copyright: "© Todos os direitos reservados",
   },
 };

@@ -2,6 +2,7 @@
 import {
   AnimatePresence,
   motion,
+  useInView,
   type Target,
   type TargetAndTransition,
   type Transition,
@@ -13,6 +14,7 @@ import React, {
   useEffect,
   useImperativeHandle,
   useMemo,
+  useRef,
   useState,
 } from "react";
 
@@ -45,8 +47,11 @@ export interface UpFadeTextProps
   loop?: boolean;
   auto?: boolean;
   splitBy?: "characters" | "words" | "lines" | string;
+  visibilityAmount?: number;
+  once?: boolean;
   onNext?: (index: number) => void;
   mainClassName?: string;
+  contentClassName?: string;
   splitLevelClassName?: string;
   elementLevelClassName?: string;
 }
@@ -67,8 +72,11 @@ const UpFadeText = forwardRef<UpFadeTextRef, UpFadeTextProps>(
       loop = true,
       auto = true,
       splitBy = "characters",
+      visibilityAmount = 0.25,
+      once = true,
       onNext,
       mainClassName,
+      contentClassName,
       splitLevelClassName,
       elementLevelClassName,
       ...rest
@@ -76,6 +84,11 @@ const UpFadeText = forwardRef<UpFadeTextRef, UpFadeTextProps>(
     ref
   ) => {
     const [currentTextIndex, setCurrentTextIndex] = useState<number>(0);
+    const containerRef = useRef<HTMLSpanElement | null>(null);
+    const inView = useInView(containerRef, {
+      amount: visibilityAmount,
+      once,
+    });
 
     const splitIntoCharacters = (text: string): string[] => {
       if (typeof Intl !== "undefined" && Intl.Segmenter) {
@@ -195,13 +208,14 @@ const UpFadeText = forwardRef<UpFadeTextRef, UpFadeTextProps>(
     );
 
     useEffect(() => {
-      if (!auto) return;
+      if (!auto || !inView) return;
       const intervalId = setInterval(next, rotationInterval);
       return () => clearInterval(intervalId);
-    }, [next, rotationInterval, auto]);
+    }, [next, rotationInterval, auto, inView]);
 
     return (
       <motion.span
+        ref={containerRef}
         className={cn(
           "flex flex-wrap whitespace-pre-wrap relative",
           mainClassName
@@ -213,14 +227,15 @@ const UpFadeText = forwardRef<UpFadeTextRef, UpFadeTextProps>(
         <span className="sr-only">{texts[currentTextIndex]}</span>
         <AnimatePresence
           mode={animatePresenceMode}
-          initial={animatePresenceInitial}
+          initial={animatePresenceInitial || !inView}
         >
           <motion.span
             key={currentTextIndex}
             className={cn(
               splitBy === "lines"
                 ? "flex flex-col w-full"
-                : "flex flex-wrap whitespace-pre-wrap relative"
+                : "flex flex-wrap whitespace-pre-wrap relative",
+              contentClassName
             )}
             layout
             aria-hidden="true"
@@ -238,7 +253,13 @@ const UpFadeText = forwardRef<UpFadeTextRef, UpFadeTextProps>(
                     <motion.span
                       key={charIndex}
                       initial={initial}
-                      animate={animate}
+                      animate={
+                        inView
+                          ? animate
+                          : typeof initial === "boolean"
+                            ? undefined
+                            : initial
+                      }
                       exit={exit}
                       transition={{
                         ...transition,

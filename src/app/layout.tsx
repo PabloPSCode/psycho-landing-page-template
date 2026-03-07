@@ -14,8 +14,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Terapia TRG",
-  description: "Landing page modelo para terapeutas e psicólogos.",
+  title: "Camila Almeida - Terapeuta TRG",
+  description:
+    "Ajudo pessoas a superar traumas emocionais, ansiedade, bloqueios e dores do passado através da Terapia de Reprocessamento Generativo.",
 };
 
 export default function RootLayout({
