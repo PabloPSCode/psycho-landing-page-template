@@ -3,29 +3,29 @@
 @import "../styles/phone-overrides.css";
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {--color-primary-50:  #eef5ff;}
-@theme {--color-primary-100: #d9e8ff;}
-@theme {--color-primary-200: #bdd6ff;}
-@theme {--color-primary-300: #93bbff;}
-@theme {--color-primary-400: #5d94ef;}
-@theme {--color-primary-500: #2567b8;}
-@theme {--color-primary-600: #1f5aa3;}
-@theme {--color-primary-700: #184880;}
-@theme {--color-primary-800: #133660;}
-@theme {--color-primary-900: #0e2744;}
-@theme {--color-primary-950: #081625;}
+@theme {--color-primary-50:  #fffaf2;}
+@theme {--color-primary-100: #fceed4;}
+@theme {--color-primary-200: #f8ddb9;}
+@theme {--color-primary-300: #f0c590;}
+@theme {--color-primary-400: #e3a766;}
+@theme {--color-primary-500: #cf8742;}
+@theme {--color-primary-600: #b06d31;}
+@theme {--color-primary-700: #8f5427;}
+@theme {--color-primary-800: #6f401e;}
+@theme {--color-primary-900: #502d15;}
+@theme {--color-primary-950: #2f1809;}
 
-@theme {--color-secondary-50:  #f2fbff;}
-@theme {--color-secondary-100: #dff4ff;}
-@theme {--color-secondary-200: #bfe9ff;}
-@theme {--color-secondary-300: #93d8f9;}
-@theme {--color-secondary-400: #67c4ee;}
-@theme {--color-secondary-500: #54afd8;}
-@theme {--color-secondary-600: #3d98c2;}
-@theme {--color-secondary-700: #2f7da0;}
-@theme {--color-secondary-800: #25607a;}
-@theme {--color-secondary-900: #1b475a;}
-@theme {--color-secondary-950: #0f2a36;}
+@theme {--color-secondary-50:  #fbf7ff;}
+@theme {--color-secondary-100: #f3ebff;}
+@theme {--color-secondary-200: #e7d7ff;}
+@theme {--color-secondary-300: #d4bbff;}
+@theme {--color-secondary-400: #bc97ff;}
+@theme {--color-secondary-500: #9c6ae6;}
+@theme {--color-secondary-600: #8753cf;}
+@theme {--color-secondary-700: #6d3fae;}
+@theme {--color-secondary-800: #563188;}
+@theme {--color-secondary-900: #402462;}
+@theme {--color-secondary-950: #27153d;}
 
 @theme {--color-tertiary-50:  #eef2fb;}
 @theme {--color-tertiary-100: #dbe5f7;}
