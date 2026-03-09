@@ -197,6 +197,7 @@ export default function Home() {
                     animation={happyFaceAniamtion}
                     height={240}
                     width={240}
+                    autoplay
                   />
                   <Button
                     animatedBorder
