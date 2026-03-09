@@ -80,7 +80,7 @@ export const psychologistLandingMock: {
   phone: "31 98912-6231",
   email: "camilas_dm@hotmail.com",
   instagramUrl: "https://www.instagram.com/camilasoares__/",
-  whatsappUrl: "https://wa.me/5531912341234",
+  whatsappUrl: "https://wa.me/5531989126231?text=Olá%20Camila%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20TRG",
   headerLinks: [
     { label: "Início", href: "#inicio" },
     { label: "Método", href: "#metodo" },
@@ -113,7 +113,7 @@ export const psychologistLandingMock: {
     ctaLabel: "Agende sua sessão",
   },
   support: {
-    title: "A TRG pode ajudar se você:",
+    title: "Em quais situações a TRG pode te ajudar?",
     items: [
       {
         title: "Ansiedade constante",
@@ -168,7 +168,7 @@ export const psychologistLandingMock: {
       "Ajudo pessoas a superar traumas emocionais, ansiedade, bloqueios e dores do passado através da Terapia de Reprocessamento Generativo, promovendo mais leveza, equilíbrio emocional e liberdade interior.",
     ],
     emphasis: "Reprocessando emoções para uma vida mais leve",
-    imageUrl: "/images/psychologist/profile.png",
+    imageUrl: "/images/psychologist/profile.jpeg",
     ctaLabel: "Agende sua sessão",
   },
   faq: {

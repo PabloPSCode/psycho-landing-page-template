@@ -10,6 +10,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
   /** Se o botão está em estado de carregamento. */
   loading?: boolean;
+  /** Ativa a borda animada para CTAs. */
+  animatedBorder?: boolean;
   /** Variante de estilo. */
   variant?: "filled" | "outlined" | "alert" | "destructive";
   /** Estilo de variação do ícone. */
@@ -24,6 +26,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export default function Button({
   label,
   loading,
+  animatedBorder = false,
   variant = "filled",
   iconVariant = "scale",
   iconColor = "#ffffff",
@@ -44,6 +47,7 @@ export default function Button({
             ? "bg-destructive-500 text-foreground"
             : ""
         }`,
+        animatedBorder && "animated-cta-border",
         className
       )}
       disabled={loading}

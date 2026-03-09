@@ -133,9 +133,11 @@ Nav.Item = ({ href = "#", target, onClick, children, active }) => (
       target={target}
       onClick={onClick}
       className={clsx(
-        "text-sm font-medium  whitespace-nowrap text-left",
-        "text-foreground/90 hover:text-foreground",
-        active && "text-primary"
+        "relative inline-flex whitespace-nowrap pb-1 text-left text-sm font-medium",
+        "text-foreground/90 transition-colors duration-300 hover:text-foreground",
+        "after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-primary-500 after:transition-transform after:duration-300 after:ease-out after:content-['']",
+        "hover:after:scale-x-100 focus-visible:after:scale-x-100",
+        active && "text-primary after:scale-x-100"
       )}
     >
       {children}
@@ -155,7 +157,7 @@ const CTA: React.FC<CTAProps> = ({ className, label, ...rest }) => {
     <button
       {...rest}
       className={clsx(
-        "inline-flex items-center justify-center rounded-lg",
+        "animated-cta-border inline-flex items-center justify-center rounded-lg",
         "bg-primary-500 font-secondary hover:opacity-90",
         "px-4 py-2 text-xs sm:text-sm font-semibold text-white",
         className
