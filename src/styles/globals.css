@@ -3,6 +3,18 @@
 @import "../styles/phone-overrides.css";
 @custom-variant dark (&:where(.dark, .dark *));
 
+@property --cta-shine-x {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --cta-shine-y {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 50%;
+}
+
 @theme {--color-primary-50:  #fffaf2;}
 @theme {--color-primary-100: #fceed4;}
 @theme {--color-primary-200: #f8ddb9;}
@@ -138,6 +150,127 @@ button{
 button:disabled{
   opacity: 0.5;
   cursor: auto;
+}
+
+@keyframes cta-border-gradient-flow {
+  0% {
+    --cta-shine-x: 0%;
+    --cta-shine-y: 52%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  24% {
+    --cta-shine-x: 0%;
+    --cta-shine-y: 0%;
+    opacity: 1;
+  }
+
+  48% {
+    --cta-shine-x: 100%;
+    --cta-shine-y: 0%;
+    opacity: 1;
+  }
+
+  72% {
+    --cta-shine-x: 100%;
+    --cta-shine-y: 100%;
+    opacity: 1;
+  }
+
+  90% {
+    --cta-shine-x: 0%;
+    --cta-shine-y: 100%;
+    opacity: 0.96;
+  }
+
+  100% {
+    --cta-shine-x: 0%;
+    --cta-shine-y: 52%;
+    opacity: 0;
+  }
+}
+
+@layer components {
+  .animated-cta-border {
+    --cta-border-size: 1.5px;
+    --cta-border-base: color-mix(in srgb, var(--color-primary-400) 24%, transparent);
+    --cta-border-strong: color-mix(in srgb, var(--color-primary-500) 44%, white 8%);
+    --cta-shine-glow: color-mix(in srgb, var(--color-primary-300) 60%, white 40%);
+    --cta-shine-core: color-mix(in srgb, var(--color-primary-50) 72%, white 28%);
+    --cta-shine-mid: color-mix(in srgb, var(--color-primary-200) 86%, white 14%);
+    --cta-shine-edge: color-mix(in srgb, var(--color-primary-400) 74%, transparent);
+    position: relative;
+    isolation: isolate;
+    overflow: visible;
+  }
+
+  .animated-cta-border::before,
+  .animated-cta-border::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  .animated-cta-border::before {
+    box-shadow: inset 0 0 0 1px var(--cta-border-base);
+    opacity: 0.65;
+    transition: opacity 320ms ease, box-shadow 320ms ease;
+  }
+
+  .animated-cta-border::after {
+    inset: -1px;
+    padding: var(--cta-border-size);
+    opacity: 0;
+    will-change: opacity, filter, --cta-shine-x, --cta-shine-y;
+    transition: opacity 320ms ease, filter 320ms ease;
+    animation: cta-border-gradient-flow 2.9s linear infinite;
+    animation-play-state: paused;
+    filter: drop-shadow(0 0 6px transparent) drop-shadow(0 0 16px transparent);
+    background-image: radial-gradient(
+      34% 58% at var(--cta-shine-x) var(--cta-shine-y),
+      var(--cta-shine-core) 0%,
+      var(--cta-shine-mid) 12%,
+      color-mix(in srgb, var(--color-primary-300) 82%, white 18%) 18%,
+      var(--cta-shine-edge) 30%,
+      color-mix(in srgb, var(--color-primary-500) 24%, transparent) 42%,
+      transparent 58%
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+
+  .animated-cta-border:hover::before,
+  .animated-cta-border:focus-visible::before {
+    opacity: 0.95;
+    box-shadow: inset 0 0 0 1px var(--cta-border-strong);
+  }
+
+  .animated-cta-border:hover::after,
+  .animated-cta-border:focus-visible::after {
+    opacity: 0.95;
+    animation-play-state: running;
+    filter:
+      drop-shadow(0 0 10px var(--cta-shine-glow))
+      drop-shadow(0 0 22px color-mix(in srgb, var(--cta-shine-glow) 74%, transparent));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-cta-border::after {
+    animation: none;
+  }
 }
 
 

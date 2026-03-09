@@ -1,6 +1,7 @@
 "use client";
 
 import FadeContainer from "@/components/animations-and-loading/FadeContainer";
+import Lottie from "@/components/animations-and-loading/Lottie";
 import RevealContainer from "@/components/animations-and-loading/RevealContainer";
 import UpFadeText from "@/components/animations-and-loading/UpFadeText";
 import ZoomContainer from "@/components/animations-and-loading/ZoomContainer";
@@ -28,6 +29,7 @@ import {
 } from "@phosphor-icons/react";
 import Image from "next/image";
 import { useState } from "react";
+import happyFaceAniamtion from "../../public/animations/happy_face.json";
 
 const supportIcons: Record<SupportIconName, React.ReactNode> = {
   mente: <BrainIcon className="h-14 w-14 text-primary-700" weight="regular" />,
@@ -143,7 +145,10 @@ export default function Home() {
       </LandingHeader.Root>
 
       <main className="flex flex-col">
-        <HeroSection size="full" sectionClassName="!px-0 !py-0 bg-primary-100">
+        <HeroSection
+          size="full"
+          sectionClassName="!px-0 !py-0 bg-gradient-to-br from-primary-100 to-primary-200 via-primary-300"
+        >
           <div
             id="inicio"
             className="relative isolate w-full min-h-[calc(100vh-4.5rem)] border-b border-primary-300/60"
@@ -187,11 +192,19 @@ export default function Home() {
                 </FadeContainer>
               </div>
               <ZoomContainer once delay={2} className="mt-9">
-                <Button
-                  label={psychologistLandingMock.hero.ctaLabel}
-                  onClick={handleWhatsappClick}
-                  className="!rounded-xl !bg-primary-300 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.2em] !text-primary-900"
-                />
+                <div>
+                  <Lottie
+                    animation={happyFaceAniamtion}
+                    height={240}
+                    width={240}
+                  />
+                  <Button
+                    animatedBorder
+                    label={psychologistLandingMock.hero.ctaLabel}
+                    onClick={handleWhatsappClick}
+                    className="!rounded-xl !bg-primary-300 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.2em] !text-primary-900"
+                  />
+                </div>
               </ZoomContainer>
             </div>
           </div>
@@ -236,7 +249,7 @@ export default function Home() {
 
         <Section
           size="full"
-          sectionClassName="!px-0 !py-0 bg-primary-700 border-b border-primary-300/60"
+          sectionClassName="!px-0 !py-0 bg-gradient-to-br from-primary-600 to-primary-600 via-primary-500 border-b border-primary-300/60"
         >
           <div
             id="metodo"
@@ -282,6 +295,7 @@ export default function Home() {
                   />
                 ))}
                 <Button
+                  animatedBorder
                   label={psychologistLandingMock.method.ctaLabel}
                   onClick={handleWhatsappClick}
                   className="mt-7 !rounded-xl !bg-white !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-primary-700"
@@ -290,8 +304,6 @@ export default function Home() {
             </div>
           </div>
         </Section>
-
-    
 
         <Section
           size="full"
@@ -337,6 +349,7 @@ export default function Home() {
 
             <RevealContainer once className="mt-12 flex justify-center">
               <Button
+                animatedBorder
                 label={psychologistLandingMock.support.ctaLabel}
                 onClick={handleWhatsappClick}
                 className="!rounded-xl !bg-primary-600 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-white"
@@ -382,6 +395,7 @@ export default function Home() {
                   className="mt-7 !text-xl !font-semibold !text-primary-700 md:!text-2xl max-w-sm"
                 />
                 <Button
+                  animatedBorder
                   label={psychologistLandingMock.about.ctaLabel}
                   onClick={handleWhatsappClick}
                   className="mt-7 !rounded-xl !bg-primary-600 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-white"
@@ -440,7 +454,7 @@ export default function Home() {
           </div>
         </Section>
 
-            <Section
+        <Section
           size="full"
           sectionClassName="!px-0 !py-0 bg-primary-50 border-b border-primary-300/60"
         >
@@ -484,7 +498,7 @@ export default function Home() {
 
         <Section
           size="full"
-          sectionClassName="!px-0 !py-0 bg-background border-b border-primary-300/60"
+          sectionClassName="!px-0 !py-0 bg-gradient-to-br from-primary-100 to-primary-200 via-primary-100 border-b border-primary-300/60"
         >
           <div id="contato" className="flex flex-col items-center mx-auto">
             <FadeContainer
@@ -508,6 +522,7 @@ export default function Home() {
                   className="!text-lg !leading-relaxed !text-foreground/90 md:!text-2xl text-center"
                 />
                 <Button
+                  animatedBorder
                   label={psychologistLandingMock.finalCta.buttonLabel}
                   onClick={handleWhatsappClick}
                   className="mt-8 !rounded-xl !bg-primary-600 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-white mx-auto"
@@ -562,7 +577,7 @@ export default function Home() {
           </Footer.Column>
         </Footer.Top>
 
-        <Footer.SocialRow className="!bg-primary-700 !text-white">
+        <Footer.SocialRow className="!bg-primary-800 !text-white">
           <div className="flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex flex-wrap items-center gap-4">
               <a
@@ -593,14 +608,20 @@ export default function Home() {
 
         <Footer.Bottom bordered className="!text-white">
           <div className="flex w-full flex-col items-center justify-between gap-2 sm:flex-row">
-            <span>
-              Desenvolvido por{" "}
+            <span className="flex  items-center justify-center gap-3">
+              {new Date().getFullYear()} - Desenvolvido por{" "}
               <a
                 href="https://www.plssistemas.com.br"
                 target="_blank"
                 rel="noreferrer"
               >
-                PLS Sistemas
+                <Image
+                  src="/images/logo_pls.png"
+                  alt="PLS Logo"
+                  width={96}
+                  height={32}
+                  className="w-24 sm:w-32 h-8 sm:h-12 rounded-full"
+                />
               </a>
             </span>
             <Paragraph
