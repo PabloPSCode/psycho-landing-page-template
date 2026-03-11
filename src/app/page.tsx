@@ -1,6 +1,7 @@
 "use client";
 
 import FadeContainer from "@/components/animations-and-loading/FadeContainer";
+import { FadeText } from "@/components/animations-and-loading/FadeText";
 import Lottie from "@/components/animations-and-loading/Lottie";
 import RevealContainer from "@/components/animations-and-loading/RevealContainer";
 import UpFadeText from "@/components/animations-and-loading/UpFadeText";
@@ -101,7 +102,7 @@ export default function Home() {
         </LandingHeader.Left>
 
         <LandingHeader.Center>
-          <LandingHeader.Nav className="justify-center">
+          <LandingHeader.Nav className="justify-center font-['Lexend']">
             {psychologistLandingMock.headerLinks.map((item) => (
               <LandingHeader.Nav.Item key={item.href} href={item.href}>
                 {item.label}
@@ -147,7 +148,17 @@ export default function Home() {
       <main className="flex flex-col">
         <HeroSection
           size="full"
-          sectionClassName="!px-0 !py-0 bg-gradient-to-br from-primary-100 to-primary-200 via-primary-300"
+          sectionClassName="!px-0 !py-0"
+          liveGradient
+          scrollGradientColors={{
+            from: "#fceed4",
+            via: "#f8ddb9",
+            to: "#f0c590",
+            fromScrolled: "#e8b676",
+            viaScrolled: "#f5f3f1",
+            toScrolled: "#e5d4c3",
+            angle: "135deg",
+          }}
         >
           <div
             id="inicio"
@@ -251,6 +262,16 @@ export default function Home() {
         <Section
           size="full"
           sectionClassName="!px-0 !py-0 bg-gradient-to-br from-primary-600 to-primary-600 via-primary-500 border-b border-primary-300/60"
+          liveGradient
+          scrollGradientColors={{
+            from: "#8d5410",
+            via: "#c68e45",
+            to: "#7b5716",
+            fromScrolled: "#d6811a",
+            viaScrolled: "#c6996c",
+            toScrolled: "#986623",
+            angle: "135deg",
+          }}
         >
           <div
             id="metodo"
@@ -309,6 +330,16 @@ export default function Home() {
         <Section
           size="full"
           sectionClassName="!px-0 !py-0 bg-primary-300 border-b border-primary-300/60"
+          liveGradient
+          scrollGradientColors={{
+            from: "#fceed4",
+            via: "#f8ddb9",
+            to: "#f0c590",
+            fromScrolled: "#e8890e",
+            viaScrolled: "#f5f3f1",
+            toScrolled: "#e5d4c3",
+            angle: "135deg",
+          }}
         >
           <div className="mx-auto w-full max-w-7xl px-6 py-16 md:px-12 md:py-20">
             <FadeContainer once className="text-center">
@@ -500,6 +531,16 @@ export default function Home() {
         <Section
           size="full"
           sectionClassName="!px-0 !py-0 bg-gradient-to-br from-primary-100 to-primary-200 via-primary-100 border-b border-primary-300/60"
+          liveGradient
+          scrollGradientColors={{
+            from: "#fceed4",
+            via: "#f8ddb9",
+            to: "#f0c590",
+            fromScrolled: "#f0c590",
+            viaScrolled: "#f5f3f1",
+            toScrolled: "#f8ddb9",
+            angle: "135deg",
+          }}
         >
           <div id="contato" className="flex flex-col items-center mx-auto">
             <FadeContainer
@@ -518,9 +559,15 @@ export default function Home() {
                   contentClassName="w-full justify-center text-center"
                   elementLevelClassName="will-change-transform"
                 />
-                <Paragraph
-                  content={psychologistLandingMock.finalCta.description}
-                  className="!text-lg !leading-relaxed !text-foreground/90 md:!text-2xl text-center"
+                <FadeText
+                  items={[
+                    "A TRG é uma abordagem terapêutica que ajuda a pessoa a reprocessar memórias dolorosas e emoções negativas armazenadas no cérebro.",
+                    "Descubra uma nova forma de viver com mais leveza, segurança e equilíbrio emocional.",
+                    "Ajudo pessoas a superar traumas emocionais, ansiedade, bloqueios e dores do passado através da TRG.",
+                  ]}
+                  fadeMs={2000}
+                  intervalMs={8000}
+                  className="!text-lg !leading-relaxed !text-foreground/90 md:!text-2xl text-center font-['Delius'] mb-0"
                 />
                 <Button
                   animatedBorder
@@ -534,8 +581,8 @@ export default function Home() {
         </Section>
       </main>
 
-      <Footer.Root className="!border-none !bg-primary-700 !text-white">
-        <Footer.Top columns={2} className="!py-10 !text-white md:!py-12">
+      <Footer.Root className="!border-none !bg-primary-50 !text-gray-900">
+        <Footer.Top columns={2} className="!py-10 !text-gray-900 md:!py-12">
           <Footer.Column className="!items-start">
             <div className="flex items-start gap-3">
               <div className="mt-1 flex h-12 w-12 items-center justify-center rounded-full bg-primary-300/30">
@@ -550,11 +597,11 @@ export default function Home() {
               <div className="space-y-2">
                 <Subtitle
                   content={psychologistLandingMock.clinicName}
-                  className="!text-xl !font-semibold !text-white"
+                  className="!text-xl !font-semibold !text-gray-800"
                 />
                 <Paragraph
                   content={psychologistLandingMock.professionalRole}
-                  className="!text-sm !text-white/80 md:!text-base"
+                  className="!text-sm !text-gray-800/80 md:!text-base"
                 />
               </div>
             </div>
@@ -564,28 +611,28 @@ export default function Home() {
             <div className="space-y-2">
               <Paragraph
                 content={psychologistLandingMock.footer.registration}
-                className="!text-sm !text-white/90 md:!text-base"
+                className="!text-sm !text-gray-800/90 md:!text-base"
               />
               <Paragraph
                 content={psychologistLandingMock.footer.legalNote}
-                className="!text-sm !text-white/75 md:!text-base"
+                className="!text-sm !text-gray-800/75 md:!text-base"
               />
               <Paragraph
                 content={`E-mail: ${psychologistLandingMock.email}`}
-                className="!text-sm !text-white/75 md:!text-base"
+                className="!text-sm !text-gray-800/75 md:!text-base"
               />
             </div>
           </Footer.Column>
         </Footer.Top>
 
-        <Footer.SocialRow className="!bg-primary-800 !text-white">
+        <Footer.SocialRow className="!bg-primary-50 !text-gray-900">
           <div className="flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex flex-wrap items-center gap-4">
               <a
                 href={psychologistLandingMock.instagramUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-white/90 hover:text-white"
+                className="inline-flex items-center gap-2 text-sm text-gray-900/90 hover:text-gray-900"
               >
                 <InstagramLogoIcon className="h-5 w-5" weight="regular" />
                 Instagram
@@ -594,20 +641,20 @@ export default function Home() {
                 href={psychologistLandingMock.whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-white/90 hover:text-white"
+                className="inline-flex items-center gap-2 text-sm !text-gray-700 hover:text-gray-900"
               >
                 <WhatsappLogoIcon className="h-5 w-5" weight="regular" />
                 {psychologistLandingMock.phone}
               </a>
             </div>
-            <div className="inline-flex items-center gap-2 text-sm text-white/90">
+            <div className="inline-flex items-center gap-2 text-sm !text-gray-700">
               <MapPinIcon className="h-5 w-5" weight="regular" />
               {psychologistLandingMock.address}
             </div>
           </div>
         </Footer.SocialRow>
 
-        <Footer.Bottom bordered className="!text-white">
+        <Footer.Bottom bordered className="!text-gray-900">
           <div className="flex w-full flex-col items-center justify-between gap-2 sm:flex-row">
             <span className="flex  items-center justify-center gap-3">
               {new Date().getFullYear()} - Desenvolvido por{" "}
@@ -617,17 +664,17 @@ export default function Home() {
                 rel="noreferrer"
               >
                 <Image
-                  src="/images/logo_pls.png"
+                  src="/images/logo_pls.svg"
                   alt="PLS Logo"
                   width={96}
                   height={32}
-                  className="w-24 sm:w-32 h-8 sm:h-12 rounded-full"
+                  className="w-auto h-6 sm:h-8 rounded-full"
                 />
               </a>
             </span>
             <Paragraph
               content={psychologistLandingMock.pageName}
-              className="!text-sm !text-white/80"
+              className="!text-sm !text-gray-900"
             />
           </div>
         </Footer.Bottom>

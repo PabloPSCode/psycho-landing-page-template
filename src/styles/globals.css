@@ -136,8 +136,8 @@ html{
                "Segoe UI Emoji", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, button, a {
-  font-family: Montserrat, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+h1, h2, h5, h6, button, a {
+  font-family: Lexend, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
                Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
                "Segoe UI Emoji", sans-serif;
 }

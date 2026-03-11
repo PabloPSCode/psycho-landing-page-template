@@ -63,7 +63,7 @@ export default function TestimonialCard({
       />
 
       {/* Depoimento */}
-      <p className="text-sm sm:text-base text-foreground/70 mb-2">
+      <p className="text-sm sm:text-base text-foreground/70 mb-2 font-['Delius']">
         {testimonial}
       </p>
 

@@ -23,7 +23,7 @@ export default function Paragraph({
   return (
     <p
       className={clsx(
-        `text-xs sm:text-sm md:text-base text-foreground leading-relaxed font-${weight}`,
+        `text-xs sm:text-sm md:text-base text-foreground leading-relaxed font-${weight} font-['Delius']`,
         className
       )}
     >

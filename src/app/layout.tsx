@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Lexend, Montserrat } from "next/font/google";
+import { Lexend, Montserrat, Delius } from "next/font/google";
 //@ts-ignore
 import "../styles/globals.css";
 
@@ -8,11 +8,12 @@ const lexend = Lexend({
   subsets: ["latin"],
 });
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-});
 
+const delius = Delius({
+  variable: "--font-delius",
+  subsets: ["latin"],
+  weight: "400",
+});
 export const metadata: Metadata = {
   title: "Camila Almeida - Terapeuta TRG",
   description:
@@ -26,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${lexend.variable} ${montserrat.variable} antialiased`}>
+      <body className={`${lexend.variable} ${delius.variable} antialiased`}>
         {children}
       </body>
     </html>

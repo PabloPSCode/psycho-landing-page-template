@@ -36,9 +36,14 @@ const Root: React.FC<FooterRootProps> = ({
       className={clsx(
         // Container pai em colunas
         "w-full flex flex-col items-center bg-background text-foreground",
+        "[&_a]:font-primary [&_button]:font-primary [&_span]:font-primary [&_p]:font-primary [&_h1]:font-primary [&_h2]:font-primary [&_h3]:font-primary [&_h4]:font-primary [&_h5]:font-primary [&_h6]:font-primary",
         bordered && "border-t border-foreground/10",
         className
       )}
+      style={{
+        fontFamily:
+          "var(--font-lexend), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif",
+      }}
     >
       {children}
     </footer>
