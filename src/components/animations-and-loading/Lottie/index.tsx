@@ -1,7 +1,8 @@
 'use client';
 
 import type { CSSProperties } from "react";
-import Lottie from "react-lottie";
+import lottie, { type AnimationItem } from "lottie-web";
+import { useEffect, useRef } from "react";
 
 interface LottieAnimationProps {
   /** Animação a ser renderizada. Pode ser um JSON, verificar exemplo.*/
@@ -23,27 +24,60 @@ export default function LottieAnimation({
   animation,
   height,
   width,
-  loop,
-  autoplay,
+  loop = true,
+  autoplay = true,
   style,
 }: LottieAnimationProps) {
-  const defaultOptions = {
-    loop,
-    autoplay,
-    animationData: animation,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const animationRef = useRef<AnimationItem | null>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+
+    if (!container) return;
+
+    animationRef.current?.destroy();
+    container.innerHTML = "";
+
+    const animationInstance = lottie.loadAnimation({
+      container,
+      renderer: "svg",
+      loop,
+      autoplay,
+      animationData: animation,
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    });
+
+    animationRef.current = animationInstance;
+
+    if (autoplay) {
+      animationInstance.goToAndPlay(0, true);
+    } else {
+      animationInstance.goToAndStop(0, true);
+    }
+
+    return () => {
+      animationInstance.destroy();
+
+      if (animationRef.current === animationInstance) {
+        animationRef.current = null;
+      }
+    };
+  }, [animation, autoplay, loop]);
 
   return (
-    <Lottie
-      options={defaultOptions}
-      height={height}
-      width={width}
-      style={style}
+    <div
+      ref={containerRef}
+      style={{
+        width,
+        height,
+        overflow: "hidden",
+        margin: "0 auto",
+        ...style,
+      }}
     />
   );
 }
-
 
