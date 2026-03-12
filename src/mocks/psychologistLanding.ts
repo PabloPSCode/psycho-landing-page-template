@@ -80,7 +80,7 @@ export const psychologistLandingMock: {
   phone: "31 98396-2948 ",
   email: "camilas_dm@hotmail.com",
   instagramUrl: "https://www.instagram.com/camilaterapeutatrg__/",
-  whatsappUrl: "https://wa.me/5531989126231?text=Olá%20Camila%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20TRG",
+  whatsappUrl: "https://wa.me/5531983962948?text=Olá%20Camila%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20TRG",
   headerLinks: [
     { label: "Início", href: "#inicio" },
     { label: "Método", href: "#metodo" },
