@@ -256,7 +256,7 @@ export default function Home() {
         >
           <div
             id="inicio"
-            className="relative isolate w-full min-h-[calc(100vh-4.5rem)] border-b border-primary-300/60"
+            className="relative isolate w-full min-h-[40vh] border-b border-primary-300/60"
           >
             <div
               aria-hidden
@@ -267,7 +267,7 @@ export default function Home() {
               className="pointer-events-none absolute left-[5%] top-[44%] hidden h-px w-28 bg-white/15 md:block"
             />
 
-            <div className="relative mx-auto flex flex-col sm:flex-row min-h-[calc(100vh-4.5rem)] w-full max-w-7xl items-center px-6 py-14 md:px-10 lg:px-14">
+            <div className="relative mx-auto flex flex-col sm:flex-row  w-full max-w-7xl items-center px-6 py-14 md:px-10 lg:px-14">
               <div className="max-w-4xl">
                 <FadeContainer once>
                   <Subtitle
@@ -299,12 +299,6 @@ export default function Home() {
               </div>
               <ZoomContainer once delay={2} className="mt-9">
                 <div>
-                  <Lottie
-                    animation={happyFaceAniamtion}
-                    height={240}
-                    width={240}
-                    autoplay
-                  />
                   <Button
                     animatedBorder
                     label={psychologistLandingMock.hero.ctaLabel}
@@ -428,7 +422,6 @@ export default function Home() {
         <Section
           size="full"
           sectionClassName="!px-0 !py-0 bg-white border-b border-primary-300/60"
-
         >
           <div className="mx-auto w-full max-w-7xl px-6 py-16 md:px-12 md:py-20">
             <FadeContainer once className="text-center">
@@ -545,7 +538,7 @@ export default function Home() {
         <Section
           size="full"
           sectionClassName="!px-0 !py-0 bg-primary-300 border-b border-primary-300/60"
-                    liveGradient
+          liveGradient
           scrollGradientColors={{
             from: "#fceed4",
             via: "#f8ddb9",
@@ -636,7 +629,6 @@ export default function Home() {
         <Section
           size="full"
           sectionClassName="!px-0 !py-0 bg-gradient-to-br from-primary-100 to-primary-200 via-primary-100 border-b border-primary-300/60 bg-white"
-    
         >
           <div id="contato" className="flex flex-col items-center mx-auto">
             <FadeContainer
@@ -720,14 +712,14 @@ export default function Home() {
                 E-mail: {psychologistLandingMock.email}
               </a>
             </div>
-              <a
-                href={psychologistLandingMock.reviewUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 inline-flex w-fit items-center justify-center rounded-xl bg-primary-600 px-4 py-3 text-xs font-semibold uppercase tracking-[0.08em] text-white transition hover:opacity-90"
-              >
-                Avaliar no Google
-              </a>
+            <a
+              href={psychologistLandingMock.reviewUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-4 inline-flex w-fit items-center justify-center rounded-xl bg-primary-600 px-4 py-3 text-xs font-semibold uppercase tracking-[0.08em] text-white transition hover:opacity-90"
+            >
+              Avaliar no Google
+            </a>
           </Footer.Column>
         </Footer.Top>
 
@@ -784,7 +776,6 @@ export default function Home() {
                 />
               </a>
             </span>
-        
           </div>
         </Footer.Bottom>
       </Footer.Root>
