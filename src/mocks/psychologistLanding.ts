@@ -129,7 +129,6 @@ export const psychologistLandingMock: {
   headerLinks: [
     { label: "Início", href: "#inicio" },
     { label: "Método", href: "#metodo" },
-    { label: "Atendimento", href: "#atendimento" },
     { label: "Sobre", href: "#sobre" },
     { label: "Dúvidas", href: "#duvidas" },
     { label: "Contato", href: "#contato" },
