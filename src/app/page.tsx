@@ -720,6 +720,14 @@ export default function Home() {
                 E-mail: {psychologistLandingMock.email}
               </a>
             </div>
+              <a
+                href={psychologistLandingMock.reviewUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-flex w-fit items-center justify-center rounded-xl bg-primary-600 px-4 py-3 text-xs font-semibold uppercase tracking-[0.08em] text-white transition hover:opacity-90"
+              >
+                Avaliar no Google
+              </a>
           </Footer.Column>
         </Footer.Top>
 
@@ -776,10 +784,7 @@ export default function Home() {
                 />
               </a>
             </span>
-            <Paragraph
-              content={psychologistLandingMock.pageName}
-              className="!text-sm !text-gray-900"
-            />
+        
           </div>
         </Footer.Bottom>
       </Footer.Root>

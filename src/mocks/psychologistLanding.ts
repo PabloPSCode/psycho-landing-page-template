@@ -28,6 +28,7 @@ export const psychologistLandingMock: {
   email: string;
   instagramUrl: string;
   whatsappUrl: string;
+  reviewUrl: string;
   seo: {
     title: string;
     description: string;
@@ -100,6 +101,7 @@ export const psychologistLandingMock: {
   instagramUrl: "https://www.instagram.com/camilaterapeutatrg__/",
   whatsappUrl:
     "https://wa.me/5531983962948?text=Olá%20Camila%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20TRG",
+  reviewUrl: "https://g.page/r/CfDmf7dYj1uVEAE/review",
   seo: {
     title: "Camila Almeida | Terapeuta TRG em João Monlevade - MG",
     description:
