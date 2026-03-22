@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
+import { psychologistLandingMock } from "@/mocks/psychologistLanding";
 import { Delius, Lexend } from "next/font/google";
 //@ts-ignore
 import "../styles/globals.css";
 
-const siteUrl = "https://www.camilaterapeutatrg.com.br";
-const siteTitle = "Camila Almeida | Terapeuta TRG";
-const siteDescription =
-  "Ajudo pessoas a superar traumas emocionais, ansiedade, bloqueios e dores do passado através da Terapia de Reprocessamento Generativo, com atendimento online.";
+const siteUrl = psychologistLandingMock.siteUrl;
+const siteTitle = psychologistLandingMock.seo.title;
+const siteDescription = psychologistLandingMock.seo.description;
 
 const lexend = Lexend({
   variable: "--font-lexend",
@@ -24,20 +24,12 @@ export const metadata: Metadata = {
   title: siteTitle,
   description: siteDescription,
   applicationName: "Camila Almeida - Terapeuta TRG",
-  keywords: [
-    "Camila Almeida",
-    "Terapeuta TRG",
-    "Terapia de Reprocessamento Generativo",
-    "TRG",
-    "terapia online",
-    "ansiedade",
-    "traumas emocionais",
-    "bloqueios emocionais",
-    "equilibrio emocional",
-  ],
-  authors: [{ name: "Camila Almeida" }],
-  creator: "Camila Almeida",
-  publisher: "Camila Almeida",
+  keywords: psychologistLandingMock.seo.keywords,
+  authors: [{ name: psychologistLandingMock.professionalName }],
+  creator: psychologistLandingMock.professionalName,
+  publisher: psychologistLandingMock.professionalName,
+  category: "Saúde emocional",
+  classification: "Terapia TRG e atendimento emocional",
   alternates: {
     canonical: "/",
   },
@@ -56,7 +48,7 @@ export const metadata: Metadata = {
     title: siteTitle,
     description: siteDescription,
     url: siteUrl,
-    siteName: "Camila Almeida - Terapeuta TRG",
+    siteName: psychologistLandingMock.pageName,
     images: [
       {
         url: `${siteUrl}/og-image.png`,
@@ -73,6 +65,10 @@ export const metadata: Metadata = {
     title: siteTitle,
     description: siteDescription,
     images: [`${siteUrl}/og-image.png`],
+  },
+  other: {
+    "geo.region": `BR-${psychologistLandingMock.location.stateCode}`,
+    "geo.placename": psychologistLandingMock.location.serviceAreaLabel,
   },
   icons: {
     icon: "/favicon.ico",
