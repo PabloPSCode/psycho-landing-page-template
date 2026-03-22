@@ -72,6 +72,95 @@ const testimonials = [
   },
 ];
 
+const siteUrl = psychologistLandingMock.siteUrl;
+const phoneHref = `tel:${psychologistLandingMock.phoneE164}`;
+const emailHref = `mailto:${psychologistLandingMock.email}`;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: psychologistLandingMock.seo.title,
+      description: psychologistLandingMock.seo.description,
+      inLanguage: "pt-BR",
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${siteUrl}/#professional-service`,
+      name: psychologistLandingMock.pageName,
+      url: siteUrl,
+      description: psychologistLandingMock.seo.description,
+      image: [
+        `${siteUrl}/og-image.png`,
+        `${siteUrl}${psychologistLandingMock.about.imageUrl}`,
+      ],
+      areaServed: [
+        {
+          "@type": "City",
+          name: psychologistLandingMock.location.city,
+          containedInPlace: {
+            "@type": "AdministrativeArea",
+            name: psychologistLandingMock.location.state,
+          },
+        },
+      ],
+      serviceType: [
+        "Terapia de Reprocessamento Generativo",
+        "Terapia para ansiedade",
+        "Terapia para traumas emocionais",
+        "Terapia para bloqueios emocionais",
+      ],
+      telephone: psychologistLandingMock.phoneE164,
+      email: psychologistLandingMock.email,
+      sameAs: [psychologistLandingMock.instagramUrl],
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "customer support",
+          telephone: psychologistLandingMock.phoneE164,
+          email: psychologistLandingMock.email,
+          availableLanguage: ["pt-BR"],
+          areaServed: psychologistLandingMock.location.serviceAreaLabel,
+          url: psychologistLandingMock.whatsappUrl,
+        },
+      ],
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#camila-almeida`,
+      name: psychologistLandingMock.professionalName,
+      jobTitle: psychologistLandingMock.professionalRole,
+      description: psychologistLandingMock.about.paragraphs.join(" "),
+      url: siteUrl,
+      image: `${siteUrl}${psychologistLandingMock.about.imageUrl}`,
+      sameAs: [psychologistLandingMock.instagramUrl],
+      worksFor: {
+        "@id": `${siteUrl}/#professional-service`,
+      },
+      knowsAbout: [
+        "Terapia de Reprocessamento Generativo",
+        "Ansiedade",
+        "Traumas emocionais",
+        "Bloqueios emocionais",
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${siteUrl}/#faq`,
+      mainEntity: psychologistLandingMock.faq.items.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+};
+
 export default function Home() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
@@ -85,6 +174,11 @@ export default function Home() {
 
   return (
     <div className="overflow-x-hidden bg-background text-foreground">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
       <LandingHeader.Root
         size="md"
         bordered
@@ -183,16 +277,17 @@ export default function Home() {
                 </FadeContainer>
 
                 <RevealContainer once className="mt-5">
-                  <UpFadeText
-                    texts={[psychologistLandingMock.hero.title]}
-                    auto={false}
-                    loop={false}
-                    animatePresenceInitial
-                    staggerDuration={0.04}
-                    splitBy="characters"
-                    mainClassName="text-5xl font-semibold leading-[0.95] text-primary-700 md:text-7xl lg:text-8xl"
-                    elementLevelClassName="will-change-transform"
-                  />
+                  <h1 className="text-5xl font-semibold leading-[0.95] text-primary-700 md:text-7xl lg:text-8xl">
+                    <UpFadeText
+                      texts={[psychologistLandingMock.hero.title]}
+                      auto={false}
+                      loop={false}
+                      animatePresenceInitial
+                      staggerDuration={0.04}
+                      splitBy="characters"
+                      elementLevelClassName="will-change-transform"
+                    />
+                  </h1>
                 </RevealContainer>
 
                 <FadeContainer once delay={1} className="mt-7 max-w-3xl">
@@ -232,17 +327,18 @@ export default function Home() {
               className="relative z-10 flex justify-center px-6 py-12 md:px-10 lg:px-14"
             >
               <div className="max-w-xl flex flex-col items-center">
-                <UpFadeText
-                  texts={[psychologistLandingMock.transformation.title]}
-                  auto={false}
-                  loop={false}
-                  animatePresenceInitial
-                  staggerDuration={0.04}
-                  splitBy="characters"
-                  mainClassName="!text-2xl !font-semibold !leading-tight !text-primary-700 md:!text-4xl"
-                  contentClassName="w-full justify-center text-center"
-                  elementLevelClassName="will-change-transform"
-                />
+                <h2 className="text-2xl font-semibold leading-tight text-primary-700 md:text-4xl">
+                  <UpFadeText
+                    texts={[psychologistLandingMock.transformation.title]}
+                    auto={false}
+                    loop={false}
+                    animatePresenceInitial
+                    staggerDuration={0.04}
+                    splitBy="characters"
+                    contentClassName="w-full justify-center text-center"
+                    elementLevelClassName="will-change-transform"
+                  />
+                </h2>
                 <div className="mt-7 space-y-3">
                   {psychologistLandingMock.transformation.paragraphs.map(
                     (text) => (
@@ -281,19 +377,21 @@ export default function Home() {
               once
               className="relative z-10 mx-auto max-w-5xl text-center"
             >
-              <UpFadeText
-                texts={[psychologistLandingMock.method.title]}
-                auto={false}
-                loop={false}
-                animatePresenceInitial
-                staggerDuration={0.04}
-                splitBy="characters"
-                mainClassName="!text-2xl !font-semibold !leading-tight !text-white md:!text-4xl"
-                contentClassName="w-full justify-center text-center"
-                elementLevelClassName="will-change-transform"
-              />
+              <h2 className="text-2xl font-semibold leading-tight text-white md:text-4xl">
+                <UpFadeText
+                  texts={[psychologistLandingMock.method.title]}
+                  auto={false}
+                  loop={false}
+                  animatePresenceInitial
+                  staggerDuration={0.04}
+                  splitBy="characters"
+                  contentClassName="w-full justify-center text-center"
+                  elementLevelClassName="will-change-transform"
+                />
+              </h2>
               <Subtitle
                 content={psychologistLandingMock.method.subtitle}
+                element="h3"
                 className="mt-6 !text-xl !font-semibold !uppercase !tracking-wide !text-primary-300 md:!text-2xl"
               />
             </FadeContainer>
@@ -329,31 +427,23 @@ export default function Home() {
 
         <Section
           size="full"
-          sectionClassName="!px-0 !py-0 bg-primary-300 border-b border-primary-300/60"
-          liveGradient
-          scrollGradientColors={{
-            from: "#fceed4",
-            via: "#f8ddb9",
-            to: "#f0c590",
-            fromScrolled: "#e8890e",
-            viaScrolled: "#f5f3f1",
-            toScrolled: "#e5d4c3",
-            angle: "135deg",
-          }}
+          sectionClassName="!px-0 !py-0 bg-white border-b border-primary-300/60"
+
         >
           <div className="mx-auto w-full max-w-7xl px-6 py-16 md:px-12 md:py-20">
             <FadeContainer once className="text-center">
-              <UpFadeText
-                texts={[psychologistLandingMock.support.title]}
-                auto={false}
-                loop={false}
-                animatePresenceInitial
-                staggerDuration={0.04}
-                splitBy="characters"
-                mainClassName="!text-4xl !font-semibold !text-primary-700 md:!text-5xl"
-                contentClassName="w-full justify-center text-center"
-                elementLevelClassName="will-change-transform"
-              />
+              <h2 className="text-4xl font-semibold text-primary-700 md:text-5xl">
+                <UpFadeText
+                  texts={[psychologistLandingMock.support.title]}
+                  auto={false}
+                  loop={false}
+                  animatePresenceInitial
+                  staggerDuration={0.04}
+                  splitBy="characters"
+                  contentClassName="w-full justify-center text-center"
+                  elementLevelClassName="will-change-transform"
+                />
+              </h2>
             </FadeContainer>
 
             <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
@@ -362,13 +452,14 @@ export default function Home() {
                   key={item.title}
                   once
                   delay={index}
-                  className="h-full rounded-2xl bg-white/70 p-6 text-center shadow-sm"
+                  className="h-full rounded-2xl bg-primary-50 p-6 text-center shadow-sm"
                 >
                   <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-full bg-white shadow-md">
                     {supportIcons[item.icon]}
                   </div>
                   <Subtitle
                     content={item.title}
+                    element="h3"
                     className="mt-5 !text-xl !font-semibold !text-primary-700"
                   />
                   <Paragraph
@@ -403,16 +494,17 @@ export default function Home() {
               className="flex justify-center px-6 py-12 md:px-10 lg:px-14"
             >
               <div className="max-w-xl">
-                <UpFadeText
-                  texts={[psychologistLandingMock.about.title]}
-                  auto={false}
-                  loop={false}
-                  animatePresenceInitial
-                  staggerDuration={0.04}
-                  splitBy="characters"
-                  mainClassName="!text-4xl !font-semibold !text-primary-700 md:!text-5xl"
-                  elementLevelClassName="will-change-transform"
-                />
+                <h2 className="text-4xl font-semibold text-primary-700 md:text-5xl">
+                  <UpFadeText
+                    texts={[psychologistLandingMock.about.title]}
+                    auto={false}
+                    loop={false}
+                    animatePresenceInitial
+                    staggerDuration={0.04}
+                    splitBy="characters"
+                    elementLevelClassName="will-change-transform"
+                  />
+                </h2>
                 <div className="mt-6 space-y-4">
                   {psychologistLandingMock.about.paragraphs.map((text) => (
                     <Paragraph
@@ -424,6 +516,7 @@ export default function Home() {
                 </div>
                 <Subtitle
                   content={psychologistLandingMock.about.emphasis}
+                  element="h3"
                   className="mt-7 !text-xl !font-semibold !text-primary-700 md:!text-2xl max-w-sm"
                 />
                 <Button
@@ -441,7 +534,7 @@ export default function Home() {
             >
               <Image
                 src={psychologistLandingMock.about.imageUrl}
-                alt="Ambiente de atendimento terapêutico"
+                alt="Camila Almeida, terapeuta TRG"
                 fill
                 className="object-contain object-center pb-8 md:pb-0 "
               />
@@ -452,23 +545,34 @@ export default function Home() {
         <Section
           size="full"
           sectionClassName="!px-0 !py-0 bg-primary-300 border-b border-primary-300/60"
+                    liveGradient
+          scrollGradientColors={{
+            from: "#fceed4",
+            via: "#f8ddb9",
+            to: "#f0c590",
+            fromScrolled: "#e8b676",
+            viaScrolled: "#f5f3f1",
+            toScrolled: "#e5d4c3",
+            angle: "135deg",
+          }}
         >
           <div
             id="duvidas"
             className="relative mx-auto w-full max-w-7xl overflow-hidden px-6 py-16 md:px-12 md:py-20"
           >
             <FadeContainer once className="relative z-10 text-center">
-              <UpFadeText
-                texts={[psychologistLandingMock.faq.title]}
-                auto={false}
-                loop={false}
-                animatePresenceInitial
-                staggerDuration={0.04}
-                splitBy="characters"
-                mainClassName="!text-4xl !font-semibold !text-primary-700 md:!text-5xl"
-                contentClassName="w-full justify-center text-center"
-                elementLevelClassName="will-change-transform"
-              />
+              <h2 className="text-4xl font-semibold text-primary-700 md:text-5xl">
+                <UpFadeText
+                  texts={[psychologistLandingMock.faq.title]}
+                  auto={false}
+                  loop={false}
+                  animatePresenceInitial
+                  staggerDuration={0.04}
+                  splitBy="characters"
+                  contentClassName="w-full justify-center text-center"
+                  elementLevelClassName="will-change-transform"
+                />
+              </h2>
             </FadeContainer>
 
             <div className="relative z-10 mx-auto mt-12 flex max-w-5xl flex-col gap-10 md:flex-row">
@@ -492,17 +596,18 @@ export default function Home() {
         >
           <div className="mx-auto w-full max-w-7xl px-6 py-16 md:px-12 md:py-20">
             <FadeContainer once className="text-center">
-              <UpFadeText
-                texts={["Depoimentos"]}
-                auto={false}
-                loop={false}
-                animatePresenceInitial
-                staggerDuration={0.04}
-                splitBy="characters"
-                mainClassName="!text-4xl !font-semibold !text-primary-700 md:!text-5xl"
-                contentClassName="w-full justify-center text-center"
-                elementLevelClassName="will-change-transform"
-              />
+              <h2 className="text-4xl font-semibold text-primary-700 md:text-5xl">
+                <UpFadeText
+                  texts={["Depoimentos"]}
+                  auto={false}
+                  loop={false}
+                  animatePresenceInitial
+                  staggerDuration={0.04}
+                  splitBy="characters"
+                  contentClassName="w-full justify-center text-center"
+                  elementLevelClassName="will-change-transform"
+                />
+              </h2>
             </FadeContainer>
 
             <FadeContainer once delay={1} className="mx-auto mt-5 max-w-3xl">
@@ -530,17 +635,8 @@ export default function Home() {
 
         <Section
           size="full"
-          sectionClassName="!px-0 !py-0 bg-gradient-to-br from-primary-100 to-primary-200 via-primary-100 border-b border-primary-300/60"
-          liveGradient
-          scrollGradientColors={{
-            from: "#fceed4",
-            via: "#f8ddb9",
-            to: "#f0c590",
-            fromScrolled: "#f0c590",
-            viaScrolled: "#f5f3f1",
-            toScrolled: "#f8ddb9",
-            angle: "135deg",
-          }}
+          sectionClassName="!px-0 !py-0 bg-gradient-to-br from-primary-100 to-primary-200 via-primary-100 border-b border-primary-300/60 bg-white"
+    
         >
           <div id="contato" className="flex flex-col items-center mx-auto">
             <FadeContainer
@@ -548,17 +644,18 @@ export default function Home() {
               className="flex items-center px-6 py-12 md:px-10 lg:px-14"
             >
               <div className="max-w-5xl">
-                <UpFadeText
-                  texts={[psychologistLandingMock.finalCta.title]}
-                  auto={false}
-                  loop={false}
-                  animatePresenceInitial
-                  staggerDuration={0.04}
-                  splitBy="characters"
-                  mainClassName="mb-8 !text-2xl !font-semibold !leading-tight !text-primary-700 md:!text-4xl"
-                  contentClassName="w-full justify-center text-center"
-                  elementLevelClassName="will-change-transform"
-                />
+                <h2 className="mb-8 text-2xl font-semibold leading-tight text-primary-700 md:text-4xl">
+                  <UpFadeText
+                    texts={[psychologistLandingMock.finalCta.title]}
+                    auto={false}
+                    loop={false}
+                    animatePresenceInitial
+                    staggerDuration={0.04}
+                    splitBy="characters"
+                    contentClassName="w-full justify-center text-center"
+                    elementLevelClassName="will-change-transform"
+                  />
+                </h2>
                 <FadeText
                   items={[
                     "A TRG é uma abordagem terapêutica que ajuda a pessoa a reprocessar memórias dolorosas e emoções negativas armazenadas no cérebro.",
@@ -595,10 +692,9 @@ export default function Home() {
                 />
               </div>
               <div className="space-y-2">
-                <Subtitle
-                  content={psychologistLandingMock.clinicName}
-                  className="!text-xl !font-semibold !text-gray-800"
-                />
+                <p className="text-xl font-semibold text-gray-800">
+                  {psychologistLandingMock.clinicName}
+                </p>
                 <Paragraph
                   content={psychologistLandingMock.professionalRole}
                   className="!text-sm !text-gray-800/80 md:!text-base"
@@ -617,11 +713,21 @@ export default function Home() {
                 content={psychologistLandingMock.footer.legalNote}
                 className="!text-sm !text-gray-800/75 md:!text-base"
               />
-              <Paragraph
-                content={`E-mail: ${psychologistLandingMock.email}`}
-                className="!text-sm !text-gray-800/75 md:!text-base"
-              />
+              <a
+                href={emailHref}
+                className="inline-flex text-sm text-gray-800/75 transition hover:text-gray-900 md:text-base"
+              >
+                E-mail: {psychologistLandingMock.email}
+              </a>
             </div>
+              <a
+                href={psychologistLandingMock.reviewUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-flex w-fit items-center justify-center rounded-xl bg-primary-600 px-4 py-3 text-xs font-semibold uppercase tracking-[0.08em] text-white transition hover:opacity-90"
+              >
+                Avaliar no Google
+              </a>
           </Footer.Column>
         </Footer.Top>
 
@@ -645,6 +751,12 @@ export default function Home() {
               >
                 <WhatsappLogoIcon className="h-5 w-5" weight="regular" />
                 {psychologistLandingMock.phone}
+              </a>
+              <a
+                href={phoneHref}
+                className="inline-flex items-center gap-2 text-sm !text-gray-700 hover:text-gray-900"
+              >
+                Ligar agora
               </a>
             </div>
             <div className="inline-flex items-center gap-2 text-sm !text-gray-700">
@@ -672,10 +784,7 @@ export default function Home() {
                 />
               </a>
             </span>
-            <Paragraph
-              content={psychologistLandingMock.pageName}
-              className="!text-sm !text-gray-900"
-            />
+        
           </div>
         </Footer.Bottom>
       </Footer.Root>

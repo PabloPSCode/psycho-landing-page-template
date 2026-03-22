@@ -17,15 +17,31 @@ interface FAQItem {
 }
 
 export const psychologistLandingMock: {
+  siteUrl: string;
   pageName: string;
   clinicName: string;
   professionalName: string;
   professionalRole: string;
   address: string;
   phone: string;
+  phoneE164: string;
   email: string;
   instagramUrl: string;
   whatsappUrl: string;
+  reviewUrl: string;
+  seo: {
+    title: string;
+    description: string;
+    keywords: string[];
+  };
+  location: {
+    city: string;
+    state: string;
+    stateCode: string;
+    country: string;
+    serviceAreaLabel: string;
+    attendanceMode: string;
+  };
   headerLinks: HeaderLink[];
   hero: {
     eyebrow: string;
@@ -45,6 +61,7 @@ export const psychologistLandingMock: {
     paragraphs: string[];
     ctaLabel: string;
   };
+
   support: {
     title: string;
     items: SupportItem[];
@@ -72,15 +89,45 @@ export const psychologistLandingMock: {
     copyright: string;
   };
 } = {
+  siteUrl: "https://www.camilaterapeutatrg.com.br",
   pageName: "Camila Almeida - Terapeuta TRG",
   clinicName: "Camila Almeida",
   professionalName: "Camila Almeida",
   professionalRole: "Terapeuta TRG",
-  address: "Atendimento online",
-  phone: "31 98396-2948 ",
+  address: "João Monlevade - MG | Atendimento online",
+  phone: "31 98396-2948",
+  phoneE164: "+5531983962948",
   email: "camilas_dm@hotmail.com",
   instagramUrl: "https://www.instagram.com/camilaterapeutatrg__/",
-  whatsappUrl: "https://wa.me/5531983962948?text=Olá%20Camila%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20TRG",
+  whatsappUrl:
+    "https://wa.me/5531983962948?text=Olá%20Camila%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20TRG",
+  reviewUrl: "https://g.page/r/CfDmf7dYj1uVEAE/review",
+  seo: {
+    title: "Camila Almeida | Terapeuta TRG em João Monlevade - MG",
+    description:
+      "Terapeuta TRG para João Monlevade - MG. Atendimento online para ansiedade, traumas emocionais, bloqueios e dores do passado com Terapia de Reprocessamento Generativo.",
+    keywords: [
+      "Camila Almeida",
+      "terapeuta TRG em João Monlevade",
+      "terapeuta em João Monlevade",
+      "terapia TRG João Monlevade",
+      "Terapia de Reprocessamento Generativo",
+      "TRG",
+      "terapia online",
+      "ansiedade",
+      "traumas emocionais",
+      "bloqueios emocionais",
+      "João Monlevade MG",
+    ],
+  },
+  location: {
+    city: "João Monlevade",
+    state: "Minas Gerais",
+    stateCode: "MG",
+    country: "Brasil",
+    serviceAreaLabel: "João Monlevade - MG",
+    attendanceMode: "Atendimento online",
+  },
   headerLinks: [
     { label: "Início", href: "#inicio" },
     { label: "Método", href: "#metodo" },
@@ -113,7 +160,7 @@ export const psychologistLandingMock: {
     ctaLabel: "AGENDE SUA SESSÃO",
   },
   support: {
-    title: "Em quais situações a TRG pode te ajudar?",
+    title: "Em quais situações a terapia TRG pode te ajudar?",
     items: [
       {
         title: "Ansiedade constante",
