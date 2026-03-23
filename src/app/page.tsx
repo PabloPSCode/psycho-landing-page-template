@@ -272,7 +272,7 @@ export default function Home() {
                 <FadeContainer once>
                   <Subtitle
                     content={psychologistLandingMock.hero.eyebrow}
-                    className="!text-sm !font-medium !uppercase !tracking-[0.35em] !text-primary-800 md:!text-base"
+                    className="!text-xs !font-medium !uppercase !tracking-[0.35em] !text-primary-800 md:!text-sm"
                   />
                 </FadeContainer>
 
@@ -760,8 +760,8 @@ export default function Home() {
 
         <Footer.Bottom bordered className="!text-gray-900">
           <div className="flex w-full flex-col items-center justify-between gap-2 sm:flex-row">
-            <span className="flex  items-center justify-center gap-3">
-              {new Date().getFullYear()} - Desenvolvido por{" "}
+            <span className="flex text-xs items-center justify-center gap-3">
+              {new Date().getFullYear()} - Orgulhosamente desenvolvido por{" "}
               <a
                 href="https://www.plssistemas.com.br"
                 target="_blank"
