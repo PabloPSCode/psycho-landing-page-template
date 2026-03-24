@@ -2,7 +2,6 @@
 
 import FadeContainer from "@/components/animations-and-loading/FadeContainer";
 import { FadeText } from "@/components/animations-and-loading/FadeText";
-import Lottie from "@/components/animations-and-loading/Lottie";
 import RevealContainer from "@/components/animations-and-loading/RevealContainer";
 import UpFadeText from "@/components/animations-and-loading/UpFadeText";
 import ZoomContainer from "@/components/animations-and-loading/ZoomContainer";
@@ -30,7 +29,6 @@ import {
 } from "@phosphor-icons/react";
 import Image from "next/image";
 import { useState } from "react";
-import happyFaceAniamtion from "../../public/animations/happy_face.json";
 
 const supportIcons: Record<SupportIconName, React.ReactNode> = {
   mente: <BrainIcon className="h-14 w-14 text-primary-700" weight="regular" />,
@@ -283,8 +281,8 @@ export default function Home() {
                       auto={false}
                       loop={false}
                       animatePresenceInitial
-                      staggerDuration={0.04}
-                      splitBy="characters"
+                      staggerDuration={0.08}
+                      splitBy="words"
                       elementLevelClassName="will-change-transform"
                     />
                   </h1>
@@ -327,8 +325,8 @@ export default function Home() {
                     auto={false}
                     loop={false}
                     animatePresenceInitial
-                    staggerDuration={0.04}
-                    splitBy="characters"
+                    staggerDuration={0.08}
+                    splitBy="words"
                     contentClassName="w-full justify-center text-center"
                     elementLevelClassName="will-change-transform"
                   />
@@ -377,8 +375,8 @@ export default function Home() {
                   auto={false}
                   loop={false}
                   animatePresenceInitial
-                  staggerDuration={0.04}
-                  splitBy="characters"
+                  staggerDuration={0.08}
+                  splitBy="words"
                   contentClassName="w-full justify-center text-center"
                   elementLevelClassName="will-change-transform"
                 />
@@ -431,8 +429,8 @@ export default function Home() {
                   auto={false}
                   loop={false}
                   animatePresenceInitial
-                  staggerDuration={0.04}
-                  splitBy="characters"
+                          staggerDuration={0.08}
+                      splitBy="words"
                   contentClassName="w-full justify-center text-center"
                   elementLevelClassName="will-change-transform"
                 />
@@ -493,8 +491,8 @@ export default function Home() {
                     auto={false}
                     loop={false}
                     animatePresenceInitial
-                    staggerDuration={0.04}
-                    splitBy="characters"
+                            staggerDuration={0.08}
+                      splitBy="words"
                     elementLevelClassName="will-change-transform"
                   />
                 </h2>
