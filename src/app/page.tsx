@@ -181,7 +181,7 @@ export default function Home() {
         size="md"
         bordered
         sticky
-        className="relative !bg-background/95 backdrop-blur"
+        className="!bg-background/95 backdrop-blur fixed!"
       >
         <LandingHeader.Left className="gap-3">
           <Image
