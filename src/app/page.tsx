@@ -14,6 +14,7 @@ import { Section } from "@/components/elements/Section";
 import { Accordeon } from "@/components/miscellaneous/Accordeon";
 import Paragraph from "@/components/typography/Paragraph";
 import Subtitle from "@/components/typography/Subtitle";
+import Title from "@/components/typography/Title";
 import {
   psychologistLandingMock,
   type SupportIconName,
@@ -73,6 +74,7 @@ const testimonials = [
 const siteUrl = psychologistLandingMock.siteUrl;
 const phoneHref = `tel:${psychologistLandingMock.phoneE164}`;
 const emailHref = `mailto:${psychologistLandingMock.email}`;
+const anchorScrollMarginClassName = "scroll-mt-32 md:scroll-mt-28";
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -254,7 +256,7 @@ export default function Home() {
         >
           <div
             id="inicio"
-            className="relative isolate w-full min-h-[40vh] border-b border-primary-300/60"
+            className={`${anchorScrollMarginClassName} flex flex-col justify-center relative isolate w-full min-h-[80vh] border-b border-primary-300/60`}
           >
             <div
               aria-hidden
@@ -265,27 +267,20 @@ export default function Home() {
               className="pointer-events-none absolute left-[5%] top-[44%] hidden h-px w-28 bg-white/15 md:block"
             />
 
-            <div className="relative mx-auto flex flex-col sm:flex-row  w-full max-w-7xl items-center px-6 py-14 md:px-10 lg:px-14">
+            <div className="relative mx-auto flex flex-col sm:flex-row  w-full max-w-7xl items-center px-6 py-16 md:px-10 lg:px-14 ">
               <div className="max-w-4xl">
                 <FadeContainer once>
                   <Subtitle
                     content={psychologistLandingMock.hero.eyebrow}
-                    className="!text-xs !font-medium !uppercase !tracking-[0.35em] !text-primary-800 md:!text-sm"
+                    className="!text-xs !font-medium !uppercase !tracking-[0.35em] !text-primary-800 md:!text-sm mt-8"
                   />
                 </FadeContainer>
 
                 <RevealContainer once className="mt-5">
-                  <h1 className="text-5xl font-semibold leading-[0.95] text-primary-700 md:text-7xl lg:text-8xl">
-                    <UpFadeText
-                      texts={[psychologistLandingMock.hero.title]}
-                      auto={false}
-                      loop={false}
-                      animatePresenceInitial
-                      staggerDuration={0.08}
-                      splitBy="words"
-                      elementLevelClassName="will-change-transform"
-                    />
-                  </h1>
+                  <Title
+                    content={psychologistLandingMock.hero.title}
+                    className="!text-5xl !font-semibold !leading-[0.95] !text-primary-700 !md:text-7xl !lg:text-8xl"
+                  />
                 </RevealContainer>
 
                 <FadeContainer once delay={1} className="mt-7 max-w-3xl">
@@ -316,21 +311,13 @@ export default function Home() {
           <div className="relative mx-auto flex w-full max-w-5xl flex-col items-center overflow-hidden">
             <RevealContainer
               once
-              className="relative z-10 flex justify-center px-6 py-12 md:px-10 lg:px-14"
+              className="relative z-10 flex justify-center px-6 py-16 md:px-10 md:py-20 lg:px-14"
             >
               <div className="max-w-xl flex flex-col items-center">
-                <h2 className="text-2xl font-semibold leading-tight text-primary-700 md:text-4xl">
-                  <UpFadeText
-                    texts={[psychologistLandingMock.transformation.title]}
-                    auto={false}
-                    loop={false}
-                    animatePresenceInitial
-                    staggerDuration={0.08}
-                    splitBy="words"
-                    contentClassName="w-full justify-center text-center"
-                    elementLevelClassName="will-change-transform"
-                  />
+                <h2 className="text-2xl font-semibold leading-tight text-primary-700 md:text-4xl text-center">
+                  {psychologistLandingMock.transformation.title}
                 </h2>
+
                 <div className="mt-7 space-y-3">
                   {psychologistLandingMock.transformation.paragraphs.map(
                     (text) => (
@@ -363,7 +350,7 @@ export default function Home() {
         >
           <div
             id="metodo"
-            className="relative mx-auto w-full max-w-7xl overflow-hidden px-6 py-16 md:px-12 md:py-20"
+            className={`${anchorScrollMarginClassName} relative mx-auto w-full max-w-7xl overflow-hidden px-6 py-20 md:px-12 md:py-24`}
           >
             <FadeContainer
               once
@@ -421,7 +408,7 @@ export default function Home() {
           size="full"
           sectionClassName="!px-0 !py-0 bg-white border-b border-primary-300/60"
         >
-          <div className="mx-auto w-full max-w-7xl px-6 py-16 md:px-12 md:py-20">
+          <div className="mx-auto w-full max-w-7xl px-6 py-20 md:px-12 md:py-24">
             <FadeContainer once className="text-center">
               <h2 className="text-4xl font-semibold text-primary-700 md:text-5xl">
                 <UpFadeText
@@ -429,8 +416,8 @@ export default function Home() {
                   auto={false}
                   loop={false}
                   animatePresenceInitial
-                          staggerDuration={0.08}
-                      splitBy="words"
+                  staggerDuration={0.08}
+                  splitBy="words"
                   contentClassName="w-full justify-center text-center"
                   elementLevelClassName="will-change-transform"
                 />
@@ -478,11 +465,11 @@ export default function Home() {
         >
           <div
             id="sobre"
-            className="mx-auto grid w-full max-w-7xl md:grid-cols-[1.05fr_0.95fr]"
+            className={`${anchorScrollMarginClassName} mx-auto grid w-full max-w-7xl md:grid-cols-[1.05fr_0.95fr]`}
           >
             <RevealContainer
               once
-              className="flex justify-center px-6 py-12 md:px-10 lg:px-14"
+              className="flex justify-center px-6 py-16 md:px-10 md:py-20 lg:px-14"
             >
               <div className="max-w-xl">
                 <h2 className="text-4xl font-semibold text-primary-700 md:text-5xl">
@@ -491,8 +478,8 @@ export default function Home() {
                     auto={false}
                     loop={false}
                     animatePresenceInitial
-                            staggerDuration={0.08}
-                      splitBy="words"
+                    staggerDuration={0.08}
+                    splitBy="words"
                     elementLevelClassName="will-change-transform"
                   />
                 </h2>
@@ -549,7 +536,7 @@ export default function Home() {
         >
           <div
             id="duvidas"
-            className="relative mx-auto w-full max-w-7xl overflow-hidden px-6 py-16 md:px-12 md:py-20"
+            className={`${anchorScrollMarginClassName} relative mx-auto w-full max-w-7xl overflow-hidden px-6 py-20 md:px-12 md:py-24`}
           >
             <FadeContainer once className="relative z-10 text-center">
               <h2 className="text-4xl font-semibold text-primary-700 md:text-5xl">
@@ -585,7 +572,7 @@ export default function Home() {
           size="full"
           sectionClassName="!px-0 !py-0 bg-primary-50 border-b border-primary-300/60"
         >
-          <div className="mx-auto w-full max-w-7xl px-6 py-16 md:px-12 md:py-20">
+          <div className="mx-auto w-full max-w-7xl px-6 py-20 md:px-12 md:py-24">
             <FadeContainer once className="text-center">
               <h2 className="text-4xl font-semibold text-primary-700 md:text-5xl">
                 <UpFadeText
@@ -628,10 +615,13 @@ export default function Home() {
           size="full"
           sectionClassName="!px-0 !py-0 bg-gradient-to-br from-primary-100 to-primary-200 via-primary-100 border-b border-primary-300/60 bg-white"
         >
-          <div id="contato" className="flex flex-col items-center mx-auto">
+          <div
+            id="contato"
+            className={`${anchorScrollMarginClassName} flex flex-col items-center mx-auto`}
+          >
             <FadeContainer
               once
-              className="flex items-center px-6 py-12 md:px-10 lg:px-14"
+              className="flex items-center px-6 py-16 md:px-10 md:py-20 lg:px-14"
             >
               <div className="max-w-5xl">
                 <h2 className="mb-8 text-2xl font-semibold leading-tight text-primary-700 md:text-4xl">
