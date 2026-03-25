@@ -719,7 +719,7 @@ export default function Home() {
         target="_blank"
         rel="noreferrer"
         aria-label="Conversar no WhatsApp"
-        className="fixed bottom-6 right-6 z-40 inline-flex h-16 w-16 items-center justify-center rounded-sm bg-[#25d366] text-white shadow-xl transition hover:scale-105"
+        className="fixed bottom-6 right-6 z-40 inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#25d366] text-white shadow-xl transition hover:scale-105"
       >
         <WhatsappLogoIcon className="h-9 w-9" weight="thin" />
       </a>
