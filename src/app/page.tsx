@@ -215,7 +215,7 @@ export default function Home() {
             cta={
               <LandingHeader.CTA
                 label={psychologistLandingMock.hero.ctaLabel}
-                className="w-full justify-center"
+                className="!rounded-sm w-full justify-center"
                 onClick={handleWhatsappClick}
               />
             }
@@ -232,7 +232,7 @@ export default function Home() {
           </LandingHeader.MobileMenuPanel>
 
           <LandingHeader.CTA
-            className="hidden md:flex"
+            className="!rounded-sm hidden md:flex"
             label={psychologistLandingMock.hero.ctaLabel}
             onClick={handleWhatsappClick}
           />
@@ -286,7 +286,7 @@ export default function Home() {
                     animatedBorder
                     label={psychologistLandingMock.hero.ctaLabel}
                     onClick={handleWhatsappClick}
-                    className="!rounded-xl !bg-primary-300 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.2em] !text-primary-900"
+                    className="!rounded-sm !bg-primary-300 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.2em] !text-primary-900"
                   />
                 </div>
               </ZoomContainer>
@@ -326,7 +326,7 @@ export default function Home() {
 
         <Section
           size="full"
-          sectionClassName="!px-0 !py-0 bg-gradient-to-br from-primary-600 to-primary-600 via-primary-500 border-b border-primary-300/60"
+          sectionClassName="!px-0 !py-0 bg-gradient-to-br from-primary-900 to-primary-900 via-primary-700 border-b border-primary-300/60"
         >
           <div
             id="metodo"
@@ -372,7 +372,7 @@ export default function Home() {
                   animatedBorder
                   label={psychologistLandingMock.method.ctaLabel}
                   onClick={handleWhatsappClick}
-                  className="mt-7 !rounded-xl !bg-white !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-primary-700"
+                  className="mt-7 !rounded-sm !bg-white !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-primary-700"
                 />
               </RevealContainer>
             </div>
@@ -427,7 +427,7 @@ export default function Home() {
                 animatedBorder
                 label={psychologistLandingMock.support.ctaLabel}
                 onClick={handleWhatsappClick}
-                className="!rounded-xl !bg-primary-600 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-white"
+                className="!rounded-sm !bg-primary-600 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-white"
               />
             </RevealContainer>
           </div>
@@ -472,7 +472,7 @@ export default function Home() {
                   animatedBorder
                   label={psychologistLandingMock.about.ctaLabel}
                   onClick={handleWhatsappClick}
-                  className="mt-7 !rounded-xl !bg-primary-600 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-white"
+                  className="mt-7 !rounded-sm !bg-primary-600 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-white"
                 />
               </div>
             </RevealContainer>
@@ -596,7 +596,7 @@ export default function Home() {
                   animatedBorder
                   label={psychologistLandingMock.finalCta.buttonLabel}
                   onClick={handleWhatsappClick}
-                  className="mt-8 !rounded-xl !bg-primary-600 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-white mx-auto"
+                  className="mt-8 !rounded-sm !bg-primary-600 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-white mx-auto"
                 />
               </div>
             </FadeContainer>
@@ -650,7 +650,7 @@ export default function Home() {
               href={psychologistLandingMock.reviewUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-4 inline-flex w-fit items-center justify-center rounded-xl bg-primary-600 px-4 py-3 text-xs font-semibold uppercase tracking-[0.08em] text-white transition hover:opacity-90"
+              className="mt-4 inline-flex w-fit items-center justify-center rounded-sm text-primary-600 text-xs font-semibold uppercase tracking-[0.08em] transition hover:opacity-90 font-secondary"
             >
               Avaliar no Google
             </a>
@@ -719,7 +719,7 @@ export default function Home() {
         target="_blank"
         rel="noreferrer"
         aria-label="Conversar no WhatsApp"
-        className="fixed bottom-6 right-6 z-40 inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#25d366] text-white shadow-xl transition hover:scale-105"
+        className="fixed bottom-6 right-6 z-40 inline-flex h-16 w-16 items-center justify-center rounded-sm bg-[#25d366] text-white shadow-xl transition hover:scale-105"
       >
         <WhatsappLogoIcon className="h-9 w-9" weight="thin" />
       </a>
