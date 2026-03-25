@@ -426,25 +426,29 @@ export default function Home() {
 
             <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
               {psychologistLandingMock.support.items.map((item, index) => (
-                <ZoomContainer
+                <RevealContainer
                   key={item.title}
                   once
-                  delay={index}
-                  className="h-full rounded-2xl bg-primary-50 p-6 text-center shadow-sm"
+                  delay={index * 2}
+                  fromLeft={index === 0 || index === 4}
+                  fromRight={index === 3 || index === 7}
+                  className="h-full"
                 >
-                  <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-full bg-white shadow-md">
-                    {supportIcons[item.icon]}
+                  <div className="h-full rounded-2xl bg-primary-50 p-6 text-center shadow-sm">
+                    <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-full bg-white shadow-md">
+                      {supportIcons[item.icon]}
+                    </div>
+                    <Subtitle
+                      content={item.title}
+                      element="h3"
+                      className="mt-5 !text-xl !font-semibold !text-primary-700"
+                    />
+                    <Paragraph
+                      content={item.description}
+                      className="mt-3 !text-sm !text-foreground/80 md:!text-base"
+                    />
                   </div>
-                  <Subtitle
-                    content={item.title}
-                    element="h3"
-                    className="mt-5 !text-xl !font-semibold !text-primary-700"
-                  />
-                  <Paragraph
-                    content={item.description}
-                    className="mt-3 !text-sm !text-foreground/80 md:!text-base"
-                  />
-                </ZoomContainer>
+                </RevealContainer>
               ))}
             </div>
 

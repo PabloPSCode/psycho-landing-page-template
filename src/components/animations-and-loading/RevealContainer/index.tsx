@@ -11,13 +11,17 @@ interface RevealContainerProps {
   once?: boolean;
   /** Offset da animação em relação à posição original. */
   offSet?: number;
-  // /** Delay da animação em segundos */
+  /** Delay da animação em segundos */
   delay?: number;
-  // /** Classes adicionais para customização do container */
+  /** Classes adicionais para customização do container */
   className?: string;
+  /** Faz o reveal entrar da esquerda para a direita. */
+  fromLeft?: boolean;
+  /** Faz o reveal entrar da direita para a esquerda. */
+  fromRight?: boolean;
 }
 
-/** Container de animação com efeito reveal up. Para ver o efeito, envolva o conteúdo em um <ZoomContainer> e garanta que o componente esteja dentro de algum container que tenha altura mínima para scrolar a página.*/
+/** Container de animação com efeito reveal up, com suporte opcional a entrada lateral. */
 export default function RevealContainer({
   children,
   visibilityAmount = 0.25,
@@ -25,24 +29,31 @@ export default function RevealContainer({
   offSet = 80,
   delay = 0,
   className,
+  fromLeft = false,
+  fromRight = false,
 }: RevealContainerProps) {
   const ref = useRef<HTMLDivElement | null>(null);
 
   // Detecta visibilidade
   const inView = useInView(ref, { amount: visibilityAmount, once });
+  const hiddenState = fromLeft
+    ? { opacity: 0, x: "-100vw" }
+    : fromRight
+      ? { opacity: 0, x: "100vw" }
+      : { opacity: 0, y: offSet };
+  const visibleState = fromLeft || fromRight
+    ? { opacity: 1, x: 0 }
+    : { opacity: 1, y: 0 };
 
   return (
-    <motion.div
-      ref={ref}
-      animate={
-        inView
-          ? { opacity: 1, transform: "translateY(0)" }
-          : { opacity: 0, transform: `translateY(${offSet}px)` }
-      }
-      transition={{ duration: 0.8, delay: delay * 0.1 }}
-      className={className}
-    >
-      {children}
-    </motion.div>
+    <div ref={ref} className={className}>
+      <motion.div
+        animate={inView ? visibleState : hiddenState}
+        transition={{ duration: 0.8, delay: delay * 0.1 }}
+        className="h-full w-full"
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 }
