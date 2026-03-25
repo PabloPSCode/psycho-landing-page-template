@@ -3,7 +3,7 @@
 import FadeContainer from "@/components/animations-and-loading/FadeContainer";
 import { FadeText } from "@/components/animations-and-loading/FadeText";
 import RevealContainer from "@/components/animations-and-loading/RevealContainer";
-import UpFadeText from "@/components/animations-and-loading/UpFadeText";
+import SplitText from "@/components/animations-and-loading/SplittedText";
 import ZoomContainer from "@/components/animations-and-loading/ZoomContainer";
 import Button from "@/components/buttons/Button";
 import TestimonialCard from "@/components/cards/TestimonialCard";
@@ -356,18 +356,13 @@ export default function Home() {
               once
               className="relative z-10 mx-auto max-w-5xl text-center"
             >
-              <h2 className="text-2xl font-semibold leading-tight text-white md:text-4xl">
-                <UpFadeText
-                  texts={[psychologistLandingMock.method.title]}
-                  auto={false}
-                  loop={false}
-                  animatePresenceInitial
-                  staggerDuration={0.08}
-                  splitBy="words"
-                  contentClassName="w-full justify-center text-center"
-                  elementLevelClassName="will-change-transform"
-                />
-              </h2>
+              <SplitText
+                text={psychologistLandingMock.method.title}
+                tag="h2"
+                splitType="words"
+                delay={80}
+                className="w-full text-2xl font-semibold leading-tight text-white md:text-4xl"
+              />
               <Subtitle
                 content={psychologistLandingMock.method.subtitle}
                 element="h3"
@@ -410,41 +405,40 @@ export default function Home() {
         >
           <div className="mx-auto w-full max-w-7xl px-6 py-20 md:px-12 md:py-24">
             <FadeContainer once className="text-center">
-              <h2 className="text-4xl font-semibold text-primary-700 md:text-5xl">
-                <UpFadeText
-                  texts={[psychologistLandingMock.support.title]}
-                  auto={false}
-                  loop={false}
-                  animatePresenceInitial
-                  staggerDuration={0.08}
-                  splitBy="words"
-                  contentClassName="w-full justify-center text-center"
-                  elementLevelClassName="will-change-transform"
-                />
-              </h2>
+              <SplitText
+                text={psychologistLandingMock.support.title}
+                tag="h2"
+                splitType="words"
+                delay={80}
+                className="w-full text-4xl font-semibold text-primary-700 md:text-5xl"
+              />
             </FadeContainer>
 
             <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
               {psychologistLandingMock.support.items.map((item, index) => (
-                <ZoomContainer
+                <RevealContainer
                   key={item.title}
                   once
-                  delay={index}
-                  className="h-full rounded-2xl bg-primary-50 p-6 text-center shadow-sm"
+                  delay={index * 2}
+                  fromLeft={index === 0 || index === 4}
+                  fromRight={index === 3 || index === 7}
+                  className="h-full"
                 >
-                  <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-full bg-white shadow-md">
-                    {supportIcons[item.icon]}
+                  <div className="h-full rounded-2xl bg-primary-50 p-6 text-center shadow-sm">
+                    <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-full bg-white shadow-md">
+                      {supportIcons[item.icon]}
+                    </div>
+                    <Subtitle
+                      content={item.title}
+                      element="h3"
+                      className="mt-5 !text-xl !font-semibold !text-primary-700"
+                    />
+                    <Paragraph
+                      content={item.description}
+                      className="mt-3 !text-sm !text-foreground/80 md:!text-base"
+                    />
                   </div>
-                  <Subtitle
-                    content={item.title}
-                    element="h3"
-                    className="mt-5 !text-xl !font-semibold !text-primary-700"
-                  />
-                  <Paragraph
-                    content={item.description}
-                    className="mt-3 !text-sm !text-foreground/80 md:!text-base"
-                  />
-                </ZoomContainer>
+                </RevealContainer>
               ))}
             </div>
 
@@ -472,17 +466,14 @@ export default function Home() {
               className="flex justify-center px-6 py-16 md:px-10 md:py-20 lg:px-14"
             >
               <div className="max-w-xl">
-                <h2 className="text-4xl font-semibold text-primary-700 md:text-5xl">
-                  <UpFadeText
-                    texts={[psychologistLandingMock.about.title]}
-                    auto={false}
-                    loop={false}
-                    animatePresenceInitial
-                    staggerDuration={0.08}
-                    splitBy="words"
-                    elementLevelClassName="will-change-transform"
-                  />
-                </h2>
+                <SplitText
+                  text={psychologistLandingMock.about.title}
+                  tag="h2"
+                  splitType="words"
+                  delay={80}
+                  className="w-full text-4xl font-semibold text-primary-700 md:text-5xl"
+                  textAlign="left"
+                />
                 <div className="mt-6 space-y-4">
                   {psychologistLandingMock.about.paragraphs.map((text) => (
                     <Paragraph
@@ -539,18 +530,13 @@ export default function Home() {
             className={`${anchorScrollMarginClassName} relative mx-auto w-full max-w-7xl overflow-hidden px-6 py-20 md:px-12 md:py-24`}
           >
             <FadeContainer once className="relative z-10 text-center">
-              <h2 className="text-4xl font-semibold text-primary-700 md:text-5xl">
-                <UpFadeText
-                  texts={[psychologistLandingMock.faq.title]}
-                  auto={false}
-                  loop={false}
-                  animatePresenceInitial
-                  staggerDuration={0.04}
-                  splitBy="characters"
-                  contentClassName="w-full justify-center text-center"
-                  elementLevelClassName="will-change-transform"
-                />
-              </h2>
+              <SplitText
+                text={psychologistLandingMock.faq.title}
+                tag="h2"
+                splitType="chars"
+                delay={40}
+                className="w-full text-4xl font-semibold text-primary-700 md:text-5xl"
+              />
             </FadeContainer>
 
             <div className="relative z-10 mx-auto mt-12 flex max-w-5xl flex-col gap-10 md:flex-row">
@@ -574,18 +560,13 @@ export default function Home() {
         >
           <div className="mx-auto w-full max-w-7xl px-6 py-20 md:px-12 md:py-24">
             <FadeContainer once className="text-center">
-              <h2 className="text-4xl font-semibold text-primary-700 md:text-5xl">
-                <UpFadeText
-                  texts={["Depoimentos"]}
-                  auto={false}
-                  loop={false}
-                  animatePresenceInitial
-                  staggerDuration={0.04}
-                  splitBy="characters"
-                  contentClassName="w-full justify-center text-center"
-                  elementLevelClassName="will-change-transform"
-                />
-              </h2>
+              <SplitText
+                text="Depoimentos"
+                tag="h2"
+                splitType="chars"
+                delay={40}
+                className="w-full text-4xl font-semibold text-primary-700 md:text-5xl"
+              />
             </FadeContainer>
 
             <FadeContainer once delay={1} className="mx-auto mt-5 max-w-3xl">
@@ -624,18 +605,13 @@ export default function Home() {
               className="flex items-center px-6 py-16 md:px-10 md:py-20 lg:px-14"
             >
               <div className="max-w-5xl">
-                <h2 className="mb-8 text-2xl font-semibold leading-tight text-primary-700 md:text-4xl">
-                  <UpFadeText
-                    texts={[psychologistLandingMock.finalCta.title]}
-                    auto={false}
-                    loop={false}
-                    animatePresenceInitial
-                    staggerDuration={0.04}
-                    splitBy="characters"
-                    contentClassName="w-full justify-center text-center"
-                    elementLevelClassName="will-change-transform"
-                  />
-                </h2>
+                <SplitText
+                  text={psychologistLandingMock.finalCta.title}
+                  tag="h2"
+                  splitType="words"
+                  delay={40}
+                  className="mb-8 w-full text-2xl font-semibold leading-tight text-primary-700 md:text-4xl"
+                />
                 <FadeText
                   items={[
                     "A TRG é uma abordagem terapêutica que ajuda a pessoa a reprocessar memórias dolorosas e emoções negativas armazenadas no cérebro.",
