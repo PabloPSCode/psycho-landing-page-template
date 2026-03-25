@@ -242,17 +242,7 @@ export default function Home() {
       <main className="flex flex-col">
         <HeroSection
           size="full"
-          sectionClassName="!px-0 !py-0"
-          liveGradient
-          scrollGradientColors={{
-            from: "#fceed4",
-            via: "#f8ddb9",
-            to: "#f0c590",
-            fromScrolled: "#e8b676",
-            viaScrolled: "#f5f3f1",
-            toScrolled: "#e5d4c3",
-            angle: "135deg",
-          }}
+          sectionClassName="!px-0 !py-0 bg-gradient-to-br from-[#fceed4] via-[#f8ddb9] to-[#f0c590]"
         >
           <div
             id="inicio"
@@ -337,16 +327,6 @@ export default function Home() {
         <Section
           size="full"
           sectionClassName="!px-0 !py-0 bg-gradient-to-br from-primary-600 to-primary-600 via-primary-500 border-b border-primary-300/60"
-          liveGradient
-          scrollGradientColors={{
-            from: "#8d5410",
-            via: "#c68e45",
-            to: "#7b5716",
-            fromScrolled: "#d6811a",
-            viaScrolled: "#c6996c",
-            toScrolled: "#986623",
-            angle: "135deg",
-          }}
         >
           <div
             id="metodo"
@@ -513,17 +493,7 @@ export default function Home() {
 
         <Section
           size="full"
-          sectionClassName="!px-0 !py-0 bg-primary-300 border-b border-primary-300/60"
-          liveGradient
-          scrollGradientColors={{
-            from: "#fceed4",
-            via: "#f8ddb9",
-            to: "#f0c590",
-            fromScrolled: "#e8b676",
-            viaScrolled: "#f5f3f1",
-            toScrolled: "#e5d4c3",
-            angle: "135deg",
-          }}
+          sectionClassName="!px-0 !py-0 bg-gradient-to-br from-[#fceed4] via-[#f8ddb9] to-[#f0c590] border-b border-primary-300/60"
         >
           <div
             id="duvidas"
