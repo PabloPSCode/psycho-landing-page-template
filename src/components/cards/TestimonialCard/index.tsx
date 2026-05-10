@@ -1,8 +1,7 @@
 'use client';
 
-import Image from "next/image";
 import { StarIcon } from "@phosphor-icons/react";
-import React from "react";
+import Image from "next/image";
 
 interface TestimonialCardProps {
   /** URL do avatar do usuário que deu o depoimento. */
@@ -63,7 +62,7 @@ export default function TestimonialCard({
       />
 
       {/* Depoimento */}
-      <p className="text-sm sm:text-base text-foreground/70 mb-2 font-['Delius']">
+      <p className="text-sm sm:text-base text-foreground/70 mb-2 font-['Poppins']">
         {testimonial}
       </p>
 

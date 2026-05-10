@@ -30,14 +30,14 @@ const Root: React.FC<LandingHeaderRootProps> = ({
     <div
       className={clsx(
         "w-full flex justify-center bg-background text-background z-80 py-1",
-        "[&_a]:font-primary [&_button]:font-primary [&_span]:font-primary",
+        "[&_a]:font-secondary [&_button]:font-secondary [&_span]:font-secondary",
         sticky && "sticky top-0",
         bordered && "border-b border-foreground/10",
         className
       )}
       style={{
         fontFamily:
-          "var(--font-lexend), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif",
+          "var(--font-montserrat), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif",
       }}
     >
       <header
@@ -126,7 +126,7 @@ const Nav: React.FC<{ className?: string; children?: React.ReactNode }> & {
     active?: boolean;
   }>;
 } = ({ className, children }) => (
-  <ul className={clsx("flex w-full items-center gap-6 overflow-x-auto font-primary", className)}>
+  <ul className={clsx("flex w-full items-center gap-6 overflow-x-auto !font-secondary", className)}>
     {children}
   </ul>
 );
@@ -138,7 +138,7 @@ Nav.Item = ({ href = "#", target, onClick, children, active }) => (
       target={target}
       onClick={onClick}
       className={clsx(
-        "font-primary relative inline-flex whitespace-nowrap pb-1 text-left text-sm font-medium",
+        "!font-secondary !text-uppercase  relative inline-flex whitespace-nowrap pb-1 text-left text-sm font-medium",
         "text-foreground/90 transition-colors duration-300 hover:text-foreground",
         "after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-primary-500 after:transition-transform after:duration-300 after:ease-out after:content-['']",
         "hover:after:scale-x-100 focus-visible:after:scale-x-100",
@@ -162,7 +162,7 @@ const CTA: React.FC<CTAProps> = ({ className, label, ...rest }) => {
     <button
       {...rest}
       className={clsx(
-        "font-primary animated-cta-border inline-flex items-center justify-center rounded-lg",
+        "font-secondary animated-cta-border inline-flex items-center justify-center rounded-lg",
         "bg-primary-500 hover:opacity-90",
         "px-4 py-2 text-xs sm:text-sm font-semibold text-white",
         className

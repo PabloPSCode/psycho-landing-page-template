@@ -36,13 +36,13 @@ const Root: React.FC<FooterRootProps> = ({
       className={clsx(
         // Container pai em colunas
         "w-full flex flex-col items-center bg-background text-foreground",
-        "[&_a]:font-primary [&_button]:font-primary [&_span]:font-primary [&_p]:font-primary [&_h1]:font-primary [&_h2]:font-primary [&_h3]:font-primary [&_h4]:font-primary [&_h5]:font-primary [&_h6]:font-primary",
+        "[&_a]:font-secondary [&_button]:font-secondary [&_span]:font-secondary [&_p]:font-secondary [&_h1]:font-secondary [&_h2]:font-secondary [&_h3]:font-secondary [&_h4]:font-secondary [&_h5]:font-secondary [&_h6]:font-secondary",
         bordered && "border-t border-foreground/10",
         className
       )}
       style={{
         fontFamily:
-          "var(--font-lexend), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif",
+          "var(--font-montserrat), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif",
       }}
     >
       {children}

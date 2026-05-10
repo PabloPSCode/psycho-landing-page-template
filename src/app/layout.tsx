@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { psychologistLandingMock } from "@/mocks/psychologistLanding";
-import { Delius, Lexend } from "next/font/google";
+import { Poppins, Montserrat } from "next/font/google";
 //@ts-ignore
 import "../styles/globals.css";
 
@@ -8,15 +8,15 @@ const siteUrl = psychologistLandingMock.siteUrl;
 const siteTitle = psychologistLandingMock.seo.title;
 const siteDescription = psychologistLandingMock.seo.description;
 
-const lexend = Lexend({
-  variable: "--font-lexend",
+const poppins = Poppins({
+  variable: "--font-Poppins",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const delius = Delius({
-  variable: "--font-delius",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
-  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -83,7 +83,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${lexend.variable} ${delius.variable} antialiased`}>
+      <body className={`${poppins.variable} ${montserrat.variable} antialiased`}>
         {children}
       </body>
     </html>

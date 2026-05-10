@@ -105,12 +105,12 @@
   --color-bg-card: #f8fbff;  /* light mode */
   --color-border-card: #dbe8f7;  /* light mode */
 
-    --font-primary: "Lexend", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    --font-primary: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
                Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
                "Segoe UI Emoji", sans-serif;
 
   /* Secondary font (e.g., for headings) */
-  --font-secondary: "Montserrat", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+  --font-secondary: var(--font-montserrat), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
                     Roboto, "Helvetica Neue", Arial, "Noto Sans",
                     "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
 
@@ -131,13 +131,13 @@
 
 html{
   scroll-behavior: smooth;
-  font-family: Lexend, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+  font-family: Poppins, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
                Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
                "Segoe UI Emoji", sans-serif;
 }
 
-h1, h2, h5, h6, button, a {
-  font-family: Lexend, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+h1, h2, h5, h6, a {
+  font-family: Poppins, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
                Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
                "Segoe UI Emoji", sans-serif;
 }
@@ -145,6 +145,9 @@ h1, h2, h5, h6, button, a {
 button{
   display: flex;
   cursor: pointer;
+  font-family: var(--font-montserrat), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+               "Segoe UI Emoji", sans-serif;
 }
 
 button:disabled{
