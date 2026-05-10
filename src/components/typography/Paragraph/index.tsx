@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from "clsx";
-import React from "react";
 
 interface ParagraphProps {
   /** Conteúdo do texto*/
@@ -23,7 +22,7 @@ export default function Paragraph({
   return (
     <p
       className={clsx(
-        `text-xs sm:text-sm md:text-base text-foreground leading-relaxed font-${weight} font-['Delius']`,
+        `text-xs sm:text-sm md:text-base text-foreground leading-relaxed font-${weight} font-['Poppins']`,
         className
       )}
     >

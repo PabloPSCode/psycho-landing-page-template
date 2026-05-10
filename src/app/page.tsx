@@ -1,16 +1,17 @@
 "use client";
 
 import FadeContainer from "@/components/animations-and-loading/FadeContainer";
-import { FadeText } from "@/components/animations-and-loading/FadeText";
+import LightRays from "@/components/animations-and-loading/LightRays";
 import RevealContainer from "@/components/animations-and-loading/RevealContainer";
 import SplitText from "@/components/animations-and-loading/SplittedText";
 import ZoomContainer from "@/components/animations-and-loading/ZoomContainer";
 import Button from "@/components/buttons/Button";
 import TestimonialCard from "@/components/cards/TestimonialCard";
+import TiltedCard from "@/components/cards/TiltedCard";
 import Footer from "@/components/elements/Footer";
-import { HeroSection } from "@/components/elements/HeroSection";
 import LandingHeader from "@/components/elements/LandingHeader";
 import { Section } from "@/components/elements/Section";
+import VideoSection from "@/components/elements/VideoSection";
 import { Accordeon } from "@/components/miscellaneous/Accordeon";
 import Paragraph from "@/components/typography/Paragraph";
 import Subtitle from "@/components/typography/Subtitle";
@@ -172,6 +173,18 @@ export default function Home() {
     );
   };
 
+  const startWhatsAppChat = () => {
+    window.open(
+      psychologistLandingMock.whatsappUrl,
+      "_blank",
+      "noopener,noreferrer",
+    );
+  };
+
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="overflow-x-hidden bg-background text-foreground">
       <script
@@ -196,7 +209,7 @@ export default function Home() {
         </LandingHeader.Left>
 
         <LandingHeader.Center>
-          <LandingHeader.Nav className="justify-center font-['Lexend']">
+          <LandingHeader.Nav className="justify-center">
             {psychologistLandingMock.headerLinks.map((item) => (
               <LandingHeader.Nav.Item key={item.href} href={item.href}>
                 {item.label}
@@ -240,70 +253,60 @@ export default function Home() {
       </LandingHeader.Root>
 
       <main className="flex flex-col">
-        <HeroSection
-          size="full"
-          sectionClassName="!px-0 !py-0 bg-gradient-to-br from-[#fceed4] via-[#f8ddb9] to-[#f0c590]"
-        >
-          <div
-            id="inicio"
-            className={`${anchorScrollMarginClassName} flex flex-col justify-center relative isolate w-full min-h-[80vh] border-b border-primary-300/60`}
-          >
-            <div
-              aria-hidden
-              className="pointer-events-none absolute left-[6%] top-[22%] hidden h-24 w-24 rounded-full border border-white/10 md:block"
-            />
-            <div
-              aria-hidden
-              className="pointer-events-none absolute left-[5%] top-[44%] hidden h-px w-28 bg-white/15 md:block"
-            />
-
-            <div className="relative mx-auto flex flex-col sm:flex-row  w-full max-w-7xl items-center px-6 py-16 md:px-10 lg:px-14 ">
-              <div className="max-w-4xl">
+        <section className="relative overflow-hidden ">
+          <div className="pointer-events-none absolute inset-0 z-20 bg-gradient-to-r from-black/80 via-black/60 to-black/20 flex flex-col items-center justify-center" />
+          <VideoSection
+            size="full"
+            videoUrl="/videos/therapist.mp4"
+            showPlayPauseButton={false}
+            showOverlay
+            containerClassName="!min-h-[82vh] bg-transparent"
+          />
+          <div className="absolute inset-0 z-30 flex flex-col items-center justify-center h-full">
+            <div className="mx-auto my-auto min-h-[95vh] flex w-full max-w-7xl items-center justify-center2 px-6 pb-16 lg:px-8">
+              <RevealContainer
+                once
+                className="pointer-events-auto m-auto space-y-8 max-w-2xl text-center"
+              >
+                <RevealContainer once className="mt-12">
+                  <Title
+                    content={psychologistLandingMock.hero.title}
+                    className="!text-5xl !font-semibold !leading-[0.95] !text-white !md:text-7xl !lg:text-8xl !text-center"
+                  />
+                </RevealContainer>
                 <FadeContainer once>
                   <Subtitle
                     content={psychologistLandingMock.hero.eyebrow}
-                    className="!text-xs !font-medium !uppercase !tracking-[0.35em] !text-primary-800 md:!text-sm mt-8"
+                    className="!text-xs !font-medium !uppercase !tracking-[0.35em] md:!text-sm mt-8 !text-center text-white"
                   />
                 </FadeContainer>
 
-                <RevealContainer once className="mt-5">
-                  <Title
-                    content={psychologistLandingMock.hero.title}
-                    className="!text-5xl !font-semibold !leading-[0.95] !text-primary-700 !md:text-7xl !lg:text-8xl"
-                  />
-                </RevealContainer>
-
-                <FadeContainer once delay={1} className="mt-7 max-w-3xl">
-                  <Paragraph
-                    content={psychologistLandingMock.hero.description}
-                    className="!text-lg !leading-relaxed !text-primary-600/90 md:!text-2xl"
-                  />
-                </FadeContainer>
-              </div>
-              <ZoomContainer once delay={2} className="mt-9">
-                <div>
+                <FadeContainer
+                  once
+                  className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+                >
                   <Button
-                    animatedBorder
-                    label={psychologistLandingMock.hero.ctaLabel}
-                    onClick={handleWhatsappClick}
-                    className="!rounded-sm !bg-primary-300 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.2em] !text-primary-900"
+                    type="button"
+                    label="AGENDAR SESSÃO"
+                    onClick={() => startWhatsAppChat()}
+                    className="!rounded-md !bg-primary-500 !px-8 !py-4 !text-black !shadow-none font-bold mt-8"
                   />
-                </div>
-              </ZoomContainer>
+                </FadeContainer>
+              </RevealContainer>
             </div>
           </div>
-        </HeroSection>
+        </section>
 
         <Section
           size="full"
           sectionClassName="!px-0 !py-0 bg-background border-b border-primary-300/60"
         >
-          <div className="relative mx-auto flex w-full max-w-5xl flex-col items-center overflow-hidden">
+          <div className="relative mx-auto flex w-full max-w-7xl flex-col items-center overflow-hidden">
             <RevealContainer
               once
               className="relative z-10 flex justify-center px-6 py-16 md:px-10 md:py-20 lg:px-14"
             >
-              <div className="max-w-xl flex flex-col items-center">
+              <div className="max-w-3xl flex flex-col items-center">
                 <h2 className="text-2xl font-semibold leading-tight text-primary-700 md:text-4xl text-center">
                   {psychologistLandingMock.transformation.title}
                 </h2>
@@ -326,7 +329,7 @@ export default function Home() {
 
         <Section
           size="full"
-          sectionClassName="!px-0 !py-0 bg-gradient-to-br from-primary-900 to-primary-900 via-primary-700 border-b border-primary-300/60"
+          sectionClassName="!px-0 !py-0 bg-gradient-to-br from-[#fceed4] via-[#f8ddb9] to-[#f0c590]  border-b border-primary-300/60"
         >
           <div
             id="metodo"
@@ -334,45 +337,51 @@ export default function Home() {
           >
             <FadeContainer
               once
-              className="relative z-10 mx-auto max-w-5xl text-center"
+              className="relative z-10 mx-auto max-w-7xl text-center"
             >
               <SplitText
                 text={psychologistLandingMock.method.title}
                 tag="h2"
                 splitType="words"
                 delay={80}
-                className="w-full text-2xl font-semibold leading-tight text-white md:text-4xl"
+                className="w-full text-2xl font-semibold leading-tight text-primary-700 md:text-5xl"
               />
               <Subtitle
                 content={psychologistLandingMock.method.subtitle}
                 element="h3"
-                className="mt-6 !text-xl !font-semibold !uppercase !tracking-wide !text-primary-300 md:!text-2xl"
+                className="mt-6 !text-xl !font-semibold !uppercase !tracking-wide !text-primary-600 md:!text-2xl"
               />
             </FadeContainer>
 
-            <div className="relative z-10 mt-12 grid items-center gap-10 md:grid-cols-[0.4fr_1fr]">
+            <div className="relative z-10 mt-12 flex flex-col items-center gap-10 md:grid-cols-[0.4fr_1fr]">
               <ZoomContainer once className="mx-auto">
-                <div className="flex h-56 w-56 items-center justify-center rounded-full border-4 border-primary-300/60 bg-primary-600">
-                  <BrainIcon
-                    className="h-24 w-24 text-primary-200"
-                    weight="regular"
-                  />
+                <div className="relative">
+                  <div className="relative flex h-56 w-56 items-center justify-center rounded-full border-4 border-primary-300/60 bg-primary-600">
+                    <BrainIcon
+                      className="h-24 w-24 text-primary-200 animate-pulse"
+                      weight="regular"
+                    />
+                  </div>
                 </div>
               </ZoomContainer>
 
-              <RevealContainer once className="space-y-5">
-                {psychologistLandingMock.method.paragraphs.map((text) => (
-                  <Paragraph
-                    key={text}
-                    content={text}
-                    className="!text-base !leading-relaxed !text-white/95 md:!text-xl"
-                  />
-                ))}
+              <RevealContainer
+                once
+                className="space-y-5 flex flex-col items-center"
+              >
+                <Paragraph
+                  content="A TRG é uma abordagem terapêutica que ajuda a pessoa a reprocessar memórias dolorosas e emoções negativas armazenadas no cérebro."
+                  className="!text-base !leading-relaxed !text-primary-900 md:!text-xl text-center max-w-4xl mb-4"
+                />
+                <Paragraph
+                  content=" Durante as sessões, trabalhamos para que o cérebro reorganize essas experiências, reduzindo o sofrimento emocional e trazendo mais paz e equilíbrio."
+                  className="!text-base !leading-relaxed !text-primary-900 md:!text-xl text-center max-w-4xl"
+                />
                 <Button
                   animatedBorder
                   label={psychologistLandingMock.method.ctaLabel}
                   onClick={handleWhatsappClick}
-                  className="mt-7 !rounded-sm !bg-white !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-primary-700"
+                  className="mt-7 !rounded-sm !bg-white !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-primary-700 m-auto"
                 />
               </RevealContainer>
             </div>
@@ -390,7 +399,7 @@ export default function Home() {
                 tag="h2"
                 splitType="words"
                 delay={80}
-                className="w-full text-4xl font-semibold text-primary-700 md:text-5xl"
+                className="w-full text-4xl font-semibold text-primary-700 md:text-5xl pb-1"
               />
             </FadeContainer>
 
@@ -421,15 +430,6 @@ export default function Home() {
                 </RevealContainer>
               ))}
             </div>
-
-            <RevealContainer once className="mt-12 flex justify-center">
-              <Button
-                animatedBorder
-                label={psychologistLandingMock.support.ctaLabel}
-                onClick={handleWhatsappClick}
-                className="!rounded-sm !bg-primary-600 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-white"
-              />
-            </RevealContainer>
           </div>
         </Section>
 
@@ -443,36 +443,40 @@ export default function Home() {
           >
             <RevealContainer
               once
-              className="flex justify-center px-6 py-16 md:px-10 md:py-20 lg:px-14"
+              className="flex flex-col sm:flex-row items-center justify-center px-6 py-16 md:px-10 md:py-20 lg:px-14"
             >
-              <div className="max-w-xl">
+              <div className="max-w-xl mx-auto mr-4">
                 <SplitText
                   text={psychologistLandingMock.about.title}
                   tag="h2"
                   splitType="words"
                   delay={80}
-                  className="w-full text-4xl font-semibold text-primary-700 md:text-5xl"
-                  textAlign="left"
+                  className="w-full text-2xl font-semibold text-primary-700 md:text-3xl text-center mx-auto"
+                  textAlign="center"
                 />
-                <div className="mt-6 space-y-4">
-                  {psychologistLandingMock.about.paragraphs.map((text) => (
-                    <Paragraph
-                      key={text}
-                      content={text}
-                      className="!text-base !leading-relaxed !text-foreground/90 md:!text-xl"
-                    />
-                  ))}
+                <div className="mt-6 scale-105 sm:scale-115">
+                  <TiltedCard
+                    imageSrc="/images/certificate.png"
+                    altText="Certificado TRG - Camila Almeida"
+                    captionText="Certificado TRG"
+                    containerHeight="300px"
+                    imageHeight="264px"
+                    imageWidth="372px"
+                    rotateAmplitude={12}
+                    scaleOnHover={1.05}
+                    showMobileWarning={false}
+                  />
                 </div>
                 <Subtitle
-                  content={psychologistLandingMock.about.emphasis}
+                  content="Profissional certificado TRG"
                   element="h3"
-                  className="mt-7 !text-xl !font-semibold !text-primary-700 md:!text-2xl max-w-sm"
+                  className="mt-7 !text-xl !font-semibold !text-primary-700 md:!text-2xl max-w-sm mx-auto text-center"
                 />
                 <Button
                   animatedBorder
                   label={psychologistLandingMock.about.ctaLabel}
                   onClick={handleWhatsappClick}
-                  className="mt-7 !rounded-sm !bg-primary-600 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-white"
+                  className="mt-7 !rounded-sm !bg-primary-600 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-white mx-auto"
                 />
               </div>
             </RevealContainer>
@@ -562,42 +566,39 @@ export default function Home() {
           </div>
         </Section>
 
-        <Section
-          size="full"
-          sectionClassName="!px-0 !py-0 bg-gradient-to-br from-primary-100 to-primary-200 via-primary-100 border-b border-primary-300/60 bg-white"
-        >
+        <Section size="full" sectionClassName="!px-0 !py-0 bg-primary-100">
           <div
             id="contato"
-            className={`${anchorScrollMarginClassName} flex flex-col items-center mx-auto`}
+            className={`${anchorScrollMarginClassName} relative overflow-hidden flex flex-col items-center mx-auto w-full`}
           >
+            <div className="absolute inset-0 pointer-events-none">
+              <LightRays
+                raysOrigin="top-center"
+                raysColor="#ffb253"
+                raysSpeed={0.75}
+                lightSpread={3.2}
+                rayLength={8}
+                fadeDistance={3.0}
+                followMouse={false}
+              />
+            </div>
             <FadeContainer
               once
-              className="flex items-center px-6 py-16 md:px-10 md:py-20 lg:px-14"
+              className="relative z-10 flex items-center px-6 py-16 md:px-10 md:py-20 lg:px-14"
             >
               <div className="max-w-5xl">
-                <SplitText
-                  text={psychologistLandingMock.finalCta.title}
-                  tag="h2"
-                  splitType="words"
-                  delay={40}
-                  className="mb-8 w-full text-2xl font-semibold leading-tight text-primary-700 md:text-4xl"
+                <Subtitle
+                  content="Descubra uma nova forma de viver com mais leveza, segurança e equilíbrio emocional."
+                  className="!text-lg !leading-relaxed !text-white/90 md:!text-2xl text-center font-['Poppins'] mb-0 max-w-3xl"
                 />
-                <FadeText
-                  items={[
-                    "A TRG é uma abordagem terapêutica que ajuda a pessoa a reprocessar memórias dolorosas e emoções negativas armazenadas no cérebro.",
-                    "Descubra uma nova forma de viver com mais leveza, segurança e equilíbrio emocional.",
-                    "Ajudo pessoas a superar traumas emocionais, ansiedade, bloqueios e dores do passado através da TRG.",
-                  ]}
-                  fadeMs={2000}
-                  intervalMs={8000}
-                  className="!text-lg !leading-relaxed !text-foreground/90 md:!text-2xl text-center font-['Delius'] mb-0"
-                />
-                <Button
-                  animatedBorder
-                  label={psychologistLandingMock.finalCta.buttonLabel}
-                  onClick={handleWhatsappClick}
-                  className="mt-8 !rounded-sm !bg-primary-600 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-white mx-auto"
-                />
+                <div className="relative mt-8 mx-auto w-fit">
+                  <Button
+                    animatedBorder
+                    label={psychologistLandingMock.finalCta.buttonLabel}
+                    onClick={handleWhatsappClick}
+                    className="relative z-10 !rounded-sm !bg-primary-600 !px-8 !py-3 !text-sm !font-semibold !uppercase tracking-[0.08em] !text-white"
+                  />
+                </div>
               </div>
             </FadeContainer>
           </div>

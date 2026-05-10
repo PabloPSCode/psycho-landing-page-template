@@ -154,8 +154,7 @@ export const psychologistLandingMock: {
     title: "O que é a TRG?",
     subtitle: "Terapia de Reprocessamento Generativo",
     paragraphs: [
-      "A TRG é uma abordagem terapêutica que ajuda a pessoa a reprocessar memórias dolorosas e emoções negativas armazenadas no cérebro.",
-      "Durante as sessões, trabalhamos para que o cérebro reorganize essas experiências, reduzindo o sofrimento emocional e trazendo mais paz e equilíbrio.",
+      "A TRG é uma abordagem terapêutica que ajuda a pessoa a reprocessar memórias dolorosas e emoções negativas armazenadas no cérebro. Durante as sessões, trabalhamos para que o cérebro reorganize essas experiências, reduzindo o sofrimento emocional e trazendo mais paz e equilíbrio.",
     ],
     ctaLabel: "AGENDE SUA SESSÃO",
   },
