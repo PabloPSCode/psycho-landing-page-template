@@ -1,20 +1,16 @@
 'use client';
 
 import Image from "next/image";
-import { ListIcon, XIcon } from "@phosphor-icons/react"; // @phosphor-icons/react
+import { ListIcon, XIcon } from "@phosphor-icons/react";
 import clsx from "clsx";
 
 type Size = "sm" | "md" | "lg";
 
 export interface LandingHeaderRootProps
   extends React.HTMLAttributes<HTMLElement> {
-  /** Tamanho do header */
   size?: Size;
-  /** Adiciona borda inferior */
   bordered?: boolean;
-  /** Classe adicional */
   sticky?: boolean;
-  /** Largura máxima do container central (ex.: max-w-7xl) */
   maxWidthClassName?: string;
 }
 
@@ -29,15 +25,16 @@ const Root: React.FC<LandingHeaderRootProps> = ({
   return (
     <div
       className={clsx(
-        "w-full flex justify-center bg-background text-background z-80 py-1",
+        "w-full flex justify-center z-80 py-1",
+        "bg-white/95 backdrop-blur-xl text-foreground",
         "[&_a]:font-secondary [&_button]:font-secondary [&_span]:font-secondary",
         sticky && "sticky top-0",
-        bordered && "border-b border-foreground/10",
+        bordered && "border-b border-[#0F0E1A]/[0.07]",
         className
       )}
       style={{
         fontFamily:
-          "var(--font-montserrat), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif",
+          "var(--font-montserrat), Montserrat, ui-sans-serif, system-ui, sans-serif",
       }}
     >
       <header
@@ -59,7 +56,6 @@ const Root: React.FC<LandingHeaderRootProps> = ({
   );
 };
 
-/** Left / Center / Right rails */
 export interface LeftProps {
   className?: string;
   children?: React.ReactNode;
@@ -100,7 +96,6 @@ const Right: React.FC<RightProps> = ({ className, children, ...rest }) => (
   </div>
 );
 
-/** Logo */
 export interface LogoProps {
   src: string;
   alt: string;
@@ -116,7 +111,6 @@ const Logo: React.FC<LogoProps> = ({ src, alt, className }) => (
   />
 );
 
-/** Nav + Nav.Item para links do centro */
 const Nav: React.FC<{ className?: string; children?: React.ReactNode }> & {
   Item: React.FC<{
     href?: string;
@@ -138,11 +132,11 @@ Nav.Item = ({ href = "#", target, onClick, children, active }) => (
       target={target}
       onClick={onClick}
       className={clsx(
-        "!font-secondary !text-uppercase  relative inline-flex whitespace-nowrap pb-1 text-left text-sm font-medium",
-        "text-foreground/90 transition-colors duration-300 hover:text-foreground",
+        "!font-secondary relative inline-flex whitespace-nowrap pb-1 text-left text-sm font-medium",
+        "text-[#0F0E1A]/60 transition-colors duration-200 hover:text-[#0F0E1A]",
         "after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-primary-500 after:transition-transform after:duration-300 after:ease-out after:content-['']",
         "hover:after:scale-x-100 focus-visible:after:scale-x-100",
-        active && "text-primary after:scale-x-100"
+        active && "text-[#0F0E1A] after:scale-x-100"
       )}
     >
       {children}
@@ -150,8 +144,6 @@ Nav.Item = ({ href = "#", target, onClick, children, active }) => (
   </li>
 );
 Nav.Item.displayName = "LandingHeaderNavItem";
-
-/** CTA (qualquer nó) */
 
 interface CTAProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
@@ -162,9 +154,10 @@ const CTA: React.FC<CTAProps> = ({ className, label, ...rest }) => {
     <button
       {...rest}
       className={clsx(
-        "font-secondary animated-cta-border inline-flex items-center justify-center rounded-lg",
-        "bg-primary-500 hover:opacity-90",
-        "px-4 py-2 text-xs sm:text-sm font-semibold text-white",
+        "font-secondary inline-flex items-center justify-center rounded-xl",
+        "bg-primary-400 text-white",
+        "hover:opacity-90 transition-opacity duration-200",
+        "px-5 py-2.5 text-xs font-bold uppercase tracking-widest",
         className
       )}
     >
@@ -173,7 +166,6 @@ const CTA: React.FC<CTAProps> = ({ className, label, ...rest }) => {
   );
 };
 
-/** Mobile: botão que mostra/oculta o menu */
 const MobileMenuToggle: React.FC<
   React.ButtonHTMLAttributes<HTMLButtonElement> & {
     open?: boolean;
@@ -185,8 +177,8 @@ const MobileMenuToggle: React.FC<
     onClick={() => onToggle?.(!open)}
     {...rest}
     className={clsx(
-      "flex md:invisible h-9 w-9 md:w-0 md:h-0 items-center justify-center rounded-lg",
-      "hover:bg-primary/10",
+      "flex md:invisible h-9 w-9 md:w-0 md:h-0 items-center justify-center rounded-xl",
+      "text-[#0F0E1A]/60 hover:text-[#0F0E1A] hover:bg-[#0F0E1A]/[0.05] transition-colors duration-200",
       className
     )}
   >
@@ -194,7 +186,6 @@ const MobileMenuToggle: React.FC<
   </button>
 );
 
-/** Mobile: painel simples com links + CTA */
 const MobileMenuPanel: React.FC<{
   open?: boolean;
   children?: React.ReactNode;
@@ -202,10 +193,10 @@ const MobileMenuPanel: React.FC<{
 }> = ({ open, children, cta }) => {
   if (!open) return null;
   return (
-    <div className="md:hidden absolute left-0 right-0 top-full z-30 w-full border-b border-foreground/10 bg-background/98 backdrop-blur transition">
-      <div className="mx-auto max-w-7xl px-3 py-3">
+    <div className="md:hidden absolute left-0 right-0 top-full z-30 w-full border-b border-[#0F0E1A]/[0.07] bg-white/98 backdrop-blur-xl shadow-sm transition">
+      <div className="mx-auto max-w-7xl px-3 py-4">
         <ul className="flex flex-col items-center gap-3">{children}</ul>
-        {cta && <div className="mt-3">{cta}</div>}
+        {cta && <div className="mt-4">{cta}</div>}
       </div>
     </div>
   );

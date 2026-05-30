@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { psychologistLandingMock } from "@/mocks/psychologistLanding";
-import { Poppins, Montserrat } from "next/font/google";
+import { Inter, Poppins, Montserrat } from "next/font/google";
 //@ts-ignore
 import "../styles/globals.css";
 
@@ -8,15 +8,24 @@ const siteUrl = psychologistLandingMock.siteUrl;
 const siteTitle = psychologistLandingMock.seo.title;
 const siteDescription = psychologistLandingMock.seo.description;
 
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
+});
+
 const poppins = Poppins({
   variable: "--font-Poppins",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -30,9 +39,7 @@ export const metadata: Metadata = {
   publisher: psychologistLandingMock.professionalName,
   category: "Saúde emocional",
   classification: "Terapia TRG e atendimento emocional",
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   robots: {
     index: true,
     follow: true,
@@ -83,7 +90,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${poppins.variable} ${montserrat.variable} antialiased`}>
+      <body
+        className={`${inter.variable} ${poppins.variable} ${montserrat.variable} antialiased bg-white text-[#0F0E1A]`}
+      >
         {children}
       </body>
     </html>

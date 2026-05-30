@@ -3,18 +3,11 @@
 @import "../styles/phone-overrides.css";
 @custom-variant dark (&:where(.dark, .dark *));
 
-@property --cta-shine-x {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 0%;
-}
+/* ══════════════════════════════════════════════════════
+   Design system — violet/purple accent, light base
+   ══════════════════════════════════════════════════════ */
 
-@property --cta-shine-y {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 50%;
-}
-
+/* ── Primary: LightSalmon (#FFA07A) scale ── */
 @theme {--color-primary-50:  #fffaf2;}
 @theme {--color-primary-100: #fceed4;}
 @theme {--color-primary-200: #f8ddb9;}
@@ -27,18 +20,20 @@
 @theme {--color-primary-900: #502d15;}
 @theme {--color-primary-950: #2f1809;}
 
-@theme {--color-secondary-50:  #fbf7ff;}
-@theme {--color-secondary-100: #f3ebff;}
-@theme {--color-secondary-200: #e7d7ff;}
-@theme {--color-secondary-300: #d4bbff;}
-@theme {--color-secondary-400: #bc97ff;}
-@theme {--color-secondary-500: #9c6ae6;}
-@theme {--color-secondary-600: #8753cf;}
-@theme {--color-secondary-700: #6d3fae;}
-@theme {--color-secondary-800: #563188;}
-@theme {--color-secondary-900: #402462;}
-@theme {--color-secondary-950: #27153d;}
+/* ── Secondary: Warm terracotta (salmon gradient pair) ── */
+@theme {--color-secondary-50:  #FFF8F0;}
+@theme {--color-secondary-100: #FFEDD8;}
+@theme {--color-secondary-200: #FFD9B0;}
+@theme {--color-secondary-300: #FFBF84;}
+@theme {--color-secondary-400: #FF9F56;}
+@theme {--color-secondary-500: #F07C2C;}
+@theme {--color-secondary-600: #CC6010;}
+@theme {--color-secondary-700: #A34D0C;}
+@theme {--color-secondary-800: #7A3A0A;}
+@theme {--color-secondary-900: #522608;}
+@theme {--color-secondary-950: #2E1504;}
 
+/* ── Other semantic colors (unchanged) ── */
 @theme {--color-tertiary-50:  #eef2fb;}
 @theme {--color-tertiary-100: #dbe5f7;}
 @theme {--color-tertiary-200: #bfcee9;}
@@ -99,206 +94,84 @@
 @theme {--color-destructive-900: #520013;}
 @theme {--color-destructive-950: #2b0009;}
 
+/* ── Light base tokens ── */
 @theme {
-  --color-background: #f2f3f7;  /* light mode */
-  --color-foreground: #1e2f44;  /* light mode */
-  --color-bg-card: #f8fbff;  /* light mode */
-  --color-border-card: #dbe8f7;  /* light mode */
+  --color-background: #FFFFFF;
+  --color-foreground: #0F0E1A;
+  --color-bg-card:    #F8F7FF;
+  --color-border-card: #E4E2F0;
 
-    --font-primary: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-               Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
-               "Segoe UI Emoji", sans-serif;
+  --font-primary: var(--font-Poppins), "Poppins", ui-sans-serif, system-ui,
+                  -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+                  "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
 
-  /* Secondary font (e.g., for headings) */
-  --font-secondary: var(--font-montserrat), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-                    Roboto, "Helvetica Neue", Arial, "Noto Sans",
-                    "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
-
+  --font-secondary: var(--font-montserrat), "Montserrat", ui-sans-serif,
+                    system-ui, -apple-system, "Segoe UI", Roboto,
+                    "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Class override so a `.dark` class wins regardless of system */
-:root.dark {
-  --color-background: #0e1727;
-  --color-foreground: #e7f1ff;
-  --color-bg-card: #1a2740;
-  --color-border-card: #2a3e63;
-}
+/* ── Base reset & global styles ── */
+* { box-sizing: border-box; }
 
-
-*{
-   box-sizing: border-box;
-}
-
-html{
+html {
   scroll-behavior: smooth;
-  font-family: Poppins, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-               Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
-               "Segoe UI Emoji", sans-serif;
+  font-family: var(--font-inter), Poppins, ui-sans-serif, system-ui,
+               -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+               sans-serif;
 }
 
-h1, h2, h5, h6, a {
-  font-family: Poppins, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-               Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
-               "Segoe UI Emoji", sans-serif;
+body {
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #FFFFFF;
+  color: #0F0E1A;
 }
 
-button{
+::selection {
+  background-color: #FFD4BE;
+  color: #62200F;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-Poppins), Poppins, ui-sans-serif, system-ui,
+               -apple-system, "Segoe UI", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+p, span {
+  font-family: var(--font-Poppins), Poppins, ui-sans-serif, system-ui,
+               -apple-system, "Segoe UI", sans-serif;
+}
+
+::placeholder {
+  font-family: var(--font-Poppins), Poppins, ui-sans-serif, system-ui,
+               -apple-system, "Segoe UI", sans-serif;
+}
+
+a {
+  font-family: var(--font-inter), Poppins, ui-sans-serif, system-ui,
+               -apple-system, "Segoe UI", sans-serif;
+}
+
+button {
   display: flex;
   cursor: pointer;
-  font-family: var(--font-montserrat), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-               Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
-               "Segoe UI Emoji", sans-serif;
+  font-family: var(--font-montserrat), Montserrat, ui-sans-serif,
+               system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-button:disabled{
+button:disabled {
   opacity: 0.5;
   cursor: auto;
 }
 
-@keyframes cta-border-gradient-flow {
-  0% {
-    --cta-shine-x: 0%;
-    --cta-shine-y: 52%;
-    opacity: 0;
-  }
-
-  10% {
-    opacity: 1;
-  }
-
-  24% {
-    --cta-shine-x: 0%;
-    --cta-shine-y: 0%;
-    opacity: 1;
-  }
-
-  48% {
-    --cta-shine-x: 100%;
-    --cta-shine-y: 0%;
-    opacity: 1;
-  }
-
-  72% {
-    --cta-shine-x: 100%;
-    --cta-shine-y: 100%;
-    opacity: 1;
-  }
-
-  90% {
-    --cta-shine-x: 0%;
-    --cta-shine-y: 100%;
-    opacity: 0.96;
-  }
-
-  100% {
-    --cta-shine-x: 0%;
-    --cta-shine-y: 52%;
-    opacity: 0;
-  }
-}
-
-@layer components {
-  .animated-cta-border {
-    --cta-border-size: 1.5px;
-    --cta-border-base: color-mix(in srgb, var(--color-primary-400) 24%, transparent);
-    --cta-border-strong: color-mix(in srgb, var(--color-primary-500) 44%, white 8%);
-    --cta-shine-glow: color-mix(in srgb, var(--color-primary-300) 60%, white 40%);
-    --cta-shine-core: color-mix(in srgb, var(--color-primary-50) 72%, white 28%);
-    --cta-shine-mid: color-mix(in srgb, var(--color-primary-200) 86%, white 14%);
-    --cta-shine-edge: color-mix(in srgb, var(--color-primary-400) 74%, transparent);
-    position: relative;
-    isolation: isolate;
-    overflow: visible;
-  }
-
-  .animated-cta-border::before,
-  .animated-cta-border::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    border-radius: inherit;
-  }
-
-  .animated-cta-border::before {
-    box-shadow: inset 0 0 0 1px var(--cta-border-base);
-    opacity: 0.65;
-    transition: opacity 320ms ease, box-shadow 320ms ease;
-  }
-
-  .animated-cta-border::after {
-    inset: -1px;
-    padding: var(--cta-border-size);
-    opacity: 0;
-    will-change: opacity, filter, --cta-shine-x, --cta-shine-y;
-    transition: opacity 320ms ease, filter 320ms ease;
-    animation: cta-border-gradient-flow 2.9s linear infinite;
-    animation-play-state: paused;
-    filter: drop-shadow(0 0 6px transparent) drop-shadow(0 0 16px transparent);
-    background-image: radial-gradient(
-      34% 58% at var(--cta-shine-x) var(--cta-shine-y),
-      var(--cta-shine-core) 0%,
-      var(--cta-shine-mid) 12%,
-      color-mix(in srgb, var(--color-primary-300) 82%, white 18%) 18%,
-      var(--cta-shine-edge) 30%,
-      color-mix(in srgb, var(--color-primary-500) 24%, transparent) 42%,
-      transparent 58%
-    );
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-  }
-
-  .animated-cta-border:hover::before,
-  .animated-cta-border:focus-visible::before {
-    opacity: 0.95;
-    box-shadow: inset 0 0 0 1px var(--cta-border-strong);
-  }
-
-  .animated-cta-border:hover::after,
-  .animated-cta-border:focus-visible::after {
-    opacity: 0.95;
-    animation-play-state: running;
-    filter:
-      drop-shadow(0 0 10px var(--cta-shine-glow))
-      drop-shadow(0 0 22px color-mix(in srgb, var(--cta-shine-glow) 74%, transparent));
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animated-cta-border::after {
-    animation: none;
-  }
-}
-
-
-.react-datepicker__current-month,
-.react-datepicker__day-name {
-  @apply capitalize;
-}
-
-@layer utilities {
-  .rc-slider-disabled { background-color: var(--color-background) !important;}
-}
-
+/* ── Video player helpers ── */
 .video-section-player,
 .video-section-player > *,
 .video-section-player > * > *,
 .video-section-player video,
-.video-section-player iframe,
-.video-section-player hls-video,
-.video-section-player dash-video,
-.video-section-player mux-player,
-.video-section-player youtube-video,
-.video-section-player vimeo-video,
-.video-section-player wistia-video,
-.video-section-player twitch-video,
-.video-section-player tiktok-video {
+.video-section-player iframe {
   width: 100% !important;
   height: 100% !important;
   max-width: none !important;
@@ -312,4 +185,14 @@ button:disabled{
 .video-section-player iframe {
   object-fit: cover !important;
   object-position: center center !important;
+}
+
+/* ── Datepicker ── */
+.react-datepicker__current-month,
+.react-datepicker__day-name {
+  @apply capitalize;
+}
+
+@layer utilities {
+  .rc-slider-disabled { background-color: var(--color-background) !important; }
 }

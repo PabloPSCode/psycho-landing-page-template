@@ -129,19 +129,19 @@ export const psychologistLandingMock: {
     attendanceMode: "Atendimento online",
   },
   headerLinks: [
-    { label: "Início", href: "#inicio" },
-    { label: "Método", href: "#metodo" },
-    { label: "Sobre", href: "#sobre" },
-    { label: "Dúvidas", href: "#duvidas" },
-    { label: "Contato", href: "#contato" },
+    { label: "Início", href: "/" },
+    { label: "Sobre", href: "/sobre" },
+    { label: "Blog", href: "/blog" },
+    { label: "Dúvidas", href: "/#duvidas" },
+    { label: "Contato", href: "/#contato" },
   ],
   hero: {
     eyebrow: "Camila Almeida - Terapeuta TRG",
     title: "Reprocessando emoções para uma vida mais leve",
     description:
-      "Ajudo pessoas a superar traumas emocionais, ansiedade, bloqueios e dores do passado através da Terapia de Reprocessamento Generativo, promovendo mais leveza, equilíbrio emocional e liberdade interior.",
+      "Descubra uma nova forma de viver com mais leveza, segurança e equilíbrio emocional.",
     ctaLabel: "AGENDE SUA SESSÃO",
-    imageUrl: "/images/psychologist/hero-trg.jpg",
+    imageUrl: "/images/psychologist/hero-trg.png",
   },
   transformation: {
     title: "Liberte-se de emoções que ainda prendem você ao passado",
