@@ -36,15 +36,15 @@ export default function Button({
   return (
     <button
       className={clsx(
-        `flex items-center justify-center w-fit px-3 py-2 sm:px-4 sm:py-3 rounded-md  ${
+        `flex items-center justify-center w-fit px-3 py-2 sm:px-4 sm:py-3 rounded-xl ${
           variant === "filled"
-            ? "bg-primary-500 text-foreground"
+            ? "bg-gradient-to-r from-primary-500 to-primary-800 text-white"
             : variant === "outlined"
-            ? "border border-primary-500 text-primary-500"
+            ? "border border-[#0F0E1A]/20 text-[#0F0E1A]/80 hover:border-[#0F0E1A]/40 hover:text-[#0F0E1A] transition-colors duration-200"
             : variant === "alert"
-            ? "bg-amber-500 text-foreground"
+            ? "bg-alert-500 text-white"
             : variant === "destructive"
-            ? "bg-destructive-500 text-foreground"
+            ? "bg-destructive-500 text-white"
             : ""
         }`,
         animatedBorder && "animated-cta-border",

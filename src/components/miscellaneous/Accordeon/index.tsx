@@ -72,7 +72,7 @@ export function Accordeon({
       className={clsx(
         "w-full mx-auto",
         maxWidthClassName,
-        "rounded-lg border border-foreground/20 bg-background text-foreground shadow-sm",
+        "rounded-xl border border-foreground/20 bg-background text-foreground shadow-sm",
         "p-3 sm:p-4",
         className
       )}
@@ -96,7 +96,7 @@ export function Accordeon({
                 onClick={() => toggle(idx)}
                 className={clsx(
                   "group flex flex-1 items-center text-left",
-                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 rounded-md",
+                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 rounded-xl",
                   "min-w-0"
                 )}
               >
@@ -114,7 +114,7 @@ export function Accordeon({
                 aria-label={isOpen ? "Recolher resposta" : "Expandir resposta"}
                 onClick={() => toggle(idx)}
                 className={clsx(
-                  "flex-shrink-0 inline-flex items-center justify-center rounded-md",
+                  "flex-shrink-0 inline-flex items-center justify-center rounded-xl",
                   "text-foreground/80 hover:text-foreground transition",
                   "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
                   "h-9 w-9"

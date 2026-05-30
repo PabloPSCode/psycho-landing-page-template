@@ -1,26 +1,16 @@
 'use client';
 
-import { StarIcon } from "@phosphor-icons/react";
+import { StarIcon, QuotesIcon } from "@phosphor-icons/react";
 import Image from "next/image";
 
 interface TestimonialCardProps {
-  /** URL do avatar do usuário que deu o depoimento. */
   avatarUrl: string;
-  /** Nome do usuário que deu o depoimento. */
   userName: string;
-  /** Papel/função do usuário (opcional, ex.: "Designer", "CEO"). */
   userRole?: string;
-  /** Avaliação em estrelas (0 a 5, opcional). */
   rating?: number;
-  /** Texto do depoimento do usuário. */
   testimonial: string;
 }
 
-/**
- * Card de depoimento de cliente/usuário.
- * - Inclui avatar, nome, função (opcional), estrelas de avaliação e texto do depoimento.
- * - Responsivo para ser usado em seções de landing pages ou vitrines de produtos.
- */
 export default function TestimonialCard({
   avatarUrl,
   userName,
@@ -31,13 +21,13 @@ export default function TestimonialCard({
   const renderStars = (value: number) => {
     const stars = Array.from({ length: 5 }, (_, i) => i < value);
     return (
-      <div className="flex justify-center gap-1 my-3" aria-label={`Avaliação ${value} de 5`}>
+      <div className="flex gap-0.5" aria-label={`Avaliação ${value} de 5`}>
         {stars.map((filled, i) => (
           <StarIcon
             key={i}
-            size={20}
+            size={14}
             weight={filled ? "fill" : "regular"}
-            className={filled ? "text-yellow-400" : "text-gray-300"}
+            className={filled ? "text-primary-500" : "text-[#0F0E1A]/20"}
           />
         ))}
       </div>
@@ -45,38 +35,35 @@ export default function TestimonialCard({
   };
 
   return (
-    <div
-      className="
-        flex flex-col items-center text-center bg-bg-card border-border-card border bg-card
-         gap-4 shadow-md rounded-lg 
-        p-6 max-w-sm mx-auto
-      "
-    >
-      {/* Avatar */}
-      <Image
-        src={avatarUrl}
-        alt={`Foto de ${userName}`}
-        width={80}
-        height={80}
-        className="w-20 h-20 rounded-full object-cover mb-4"
-      />
+    <div className="flex flex-col bg-white border border-[#0F0E1A]/[0.08] shadow-sm rounded-xl p-7 transition-all duration-300 hover:shadow-md hover:-translate-y-1 h-full">
+      <QuotesIcon className="h-7 w-7 text-primary-400/50 mb-4 flex-shrink-0" weight="fill" />
 
-      {/* Depoimento */}
-      <p className="text-sm sm:text-base text-foreground/70 mb-2 font-['Poppins']">
+      <p className="text-sm leading-[1.85] text-[#0F0E1A]/65 flex-1">
         {testimonial}
       </p>
 
-      {/* Estrelas */}
-      {typeof rating === "number" && renderStars(rating)}
-
-      {/* Nome e Função */}
-      <div>
-        <p className="font-semibold text-foreground">{userName}</p>
-        {userRole && <p className="text-sm text-foreground/70">{userRole}</p>}
+      <div className="mt-6 flex items-center gap-3 border-t border-[#0F0E1A]/[0.07] pt-5">
+        <Image
+          src={avatarUrl}
+          alt={`Foto de ${userName || userRole}`}
+          width={44}
+          height={44}
+          className="w-11 h-11 rounded-full object-cover flex-shrink-0 ring-1 ring-[#0F0E1A]/10"
+        />
+        <div className="min-w-0">
+          {userName && (
+            <p className="font-semibold text-sm text-[#0F0E1A] truncate">{userName}</p>
+          )}
+          {userRole && (
+            <p className="text-xs text-[#0F0E1A]/45 truncate">{userRole}</p>
+          )}
+          {typeof rating === "number" && (
+            <div className="mt-1">{renderStars(rating)}</div>
+          )}
+        </div>
       </div>
     </div>
   );
 }
-
 
 export type { TestimonialCardProps };
